@@ -53,7 +53,14 @@
 
   "publishOptions": {
     "include": [
-      "wwwroot",
+      "wwwroot/images",
+      "wwwroot/lib/**/*.min.js",
+      "wwwroot/lib/**/*.min.css",
+      "wwwroot/lib/**/fonts/*.*",
+      "wwwroot/js/**/*.min.js",
+      "wwwroot/css/**/*.min.css",
+      "wwwroot/favicon.ico",
+      "wwwroot/_references.js",
       "**/*.cshtml",
       "appsettings.json",
       "web.config"
