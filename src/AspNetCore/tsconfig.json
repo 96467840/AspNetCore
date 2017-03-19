@@ -10,8 +10,7 @@
     "experimentalDecorators": true,
     "removeComments": true
   }
-  //,"include": [
-  //  "./wwwroot/ts/**/*.ts"
-  //  //,"./wwwroot/lib/**/*"
+  //"include": [
+    //"./wwwroot/lib/unobtrusive-typescript/dist/unobtrusive-typescript.ts"
   //]
 }

@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Reflection;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace AspNetCore
 {
@@ -29,6 +32,11 @@ namespace AspNetCore
         {
             // Add framework services.
             services.AddMvc();
+            var assembly = typeof(AspNetCoreComponentLibrary.TestComponent).GetTypeInfo().Assembly;
+
+            var embededFileProvider = new EmbeddedFileProvider(assembly, "AspNetCoreComponentLibrary");
+
+            services.Configure<RazorViewEngineOptions>(options => { options.FileProviders.Add(embededFileProvider); });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

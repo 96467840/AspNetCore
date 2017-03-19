@@ -23,10 +23,6 @@ files.forEach( function (file) {
 } );
 
 module.exports = {
-    //entry: {
-    //    index: "./wwwroot/ts/index.tsx"
-    //    ,find: "./wwwroot/ts/find.tsx"
-    //},
     entry: entries,
     output: {
         filename: "[name].min.js",
