@@ -1,4 +1,4 @@
-﻿{
+{
   "webroot": "./wwwroot",
   "runtimes": {
     "win10-x64": {},
@@ -9,6 +9,7 @@
     "Microsoft.AspNetCore.Diagnostics": "1.1.1",
     "Microsoft.AspNetCore.Mvc": "1.1.2",
     "Microsoft.AspNetCore.Razor.Tools": "1.1.0-preview4-final",
+    "Microsoft.AspNetCore.ResponseCaching": "1.1.1",
     "Microsoft.AspNetCore.Routing": "1.1.1",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.1.1",
     "Microsoft.AspNetCore.Server.Kestrel": "1.1.1",

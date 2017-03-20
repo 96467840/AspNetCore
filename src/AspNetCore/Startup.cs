@@ -10,6 +10,9 @@ using Microsoft.Extensions.Logging;
 using System.Reflection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Extensions.WebEncoders;
+using System.Text.Unicode;
+using System.Text.Encodings.Web;
 
 namespace AspNetCore
 {
@@ -32,11 +35,20 @@ namespace AspNetCore
         {
             // Add framework services.
             services.AddMvc();
+
+            // чтобы во вьюхах руские символы не кодировались
+            services.Configure<WebEncoderOptions>(options =>
+            {
+                options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All);
+            });
+
+            // конфигурируем подгрузку представлений из библиотеки
             var assembly = typeof(AspNetCoreComponentLibrary.TestComponent).GetTypeInfo().Assembly;
-
             var embededFileProvider = new EmbeddedFileProvider(assembly, "AspNetCoreComponentLibrary");
-
             services.Configure<RazorViewEngineOptions>(options => { options.FileProviders.Add(embededFileProvider); });
+
+            // https://docs.microsoft.com/ru-ru/aspnet/core/performance/caching/middleware
+            services.AddResponseCaching();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
