@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using AspNetCoreComponentLibrary;
 
 namespace AspNetCore.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller2Garin
     {
-        public IActionResult Index()
+        public IActionResult Index(PageIM im)
         {
-            
-            return View();
+            return im.ToActionResult(this);
         }
 
         public IActionResult About()

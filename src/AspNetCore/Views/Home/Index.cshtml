@@ -1,6 +1,10 @@
-﻿@{
+﻿@model PageVM
+@{
     ViewData["Title"] = "Home Page";
+    if (Context.Request.IsAjaxRequest()) { }
 }
+
+@await Component.InvokeAsync(nameof(BreadcrumbComponent), new { vm = Model.Breadcrumb })
 
 <div>
     <a href="#" class="jsc-uts" data-onclickurl="/"

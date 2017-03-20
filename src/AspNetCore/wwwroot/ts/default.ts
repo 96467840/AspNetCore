@@ -12,7 +12,7 @@ _app
             UTS.Log('ready');
             app.FindCollectionBySelector('.jsc-uts').Invoke('hello');
 
-            app.FindCollectionBySelector('.jsc-uts').Invoke('Say', null, ['Hello world', true]);
+            app.FindCollectionBySelector('.jsc-uts').Invoke('Say', null, ['Hello world', false]);
 
             /*let d = new UTS.Dialog(<UTS.DialogParams>{
                 Show: true, Title: 'Test', Body: $('<p>Test dialog</p>'),
