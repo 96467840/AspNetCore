@@ -22,7 +22,11 @@
     "Microsoft.Extensions.Logging.Debug": "1.1.1",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.1",
     "Microsoft.NETCore.App": "1.1.1",
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.1.0"
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.1.0",
+    "NLog.Config": "4.4.4",
+    "NLog.Extensions.Logging": "1.0.0-*",
+    "NLog.Schema": "4.4.4",
+    "NLog.Web.AspNetCore": "4.3.1"
   },
 
   "tools": {
@@ -61,7 +65,8 @@
       "wwwroot/_references.js",
       "**/*.cshtml",
       "appsettings.json",
-      "web.config"
+      "web.config",
+      "nlog.*"
     ]
   },
 

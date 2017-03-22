@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.WebEncoders;
 using System.Text.Unicode;
 using System.Text.Encodings.Web;
+using NLog.Extensions.Logging;
+using NLog.Web;
 
 namespace AspNetCore
 {
@@ -26,6 +28,15 @@ namespace AspNetCore
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            //if (env.IsDevelopment())
+            {
+                env.ConfigureNLog("nlog.config");
+            }
+            /*else
+            {
+                env.ConfigureNLog("nlog.linux.config");
+            }*/
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -56,6 +67,9 @@ namespace AspNetCore
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            loggerFactory.AddNLog();
+            app.AddNLogWeb();
 
             if (env.IsDevelopment())
             {
