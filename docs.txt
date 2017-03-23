@@ -66,3 +66,11 @@ https://material.io/guidelines/
 ƒл€ отключени€ компил€ции TypeScript при сборке проекта используетс€ параметр <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked> в первой секции <PropertyGroup> файла проекта .csproj.
 
 bower install unobtrusive-typescript --save
+
+dotnet build -r centos.7-x64 -c Release
+
+systemctl enable kestrel-core.service
+systemctl start kestrel-core.service
+systemctl stop kestrel-core.service
+systemctl restart kestrel-core.service
+systemctl status kestrel-core.service

@@ -29,14 +29,14 @@ namespace AspNetCore
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            //if (env.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 env.ConfigureNLog("nlog.config");
             }
-            /*else
+            else
             {
                 env.ConfigureNLog("nlog.linux.config");
-            }*/
+            }
         }
 
         public IConfigurationRoot Configuration { get; }
