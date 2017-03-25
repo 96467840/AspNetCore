@@ -3,6 +3,9 @@
 решение проблемы со старой версией nodejs (студия идет со своим набором утилит)
 https://blogs.msdn.microsoft.com/webdev/2015/03/19/customize-external-web-tools-in-visual-studio-2015/
 
+для region in typescripts установить 
+https://marketplace.visualstudio.com/search?term=Web%20Essentials&target=VS&category=Tools&vsVersion=&subCategory=All&sortBy=Relevance
+
 документация на ASP.NET Core 
 https://docs.microsoft.com/ru-ru/aspnet/core/fundamentals/logging
 

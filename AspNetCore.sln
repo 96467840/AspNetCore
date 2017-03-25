@@ -1,25 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B0813640-54F5-44B8-BBEA-BE98F8749011}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F0D3731-9ADD-4960-854B-7DCAAD0D3F17}"
 	ProjectSection(SolutionItems) = preProject
 		docs.txt = docs.txt
-		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetCore", "src\AspNetCore\AspNetCore.xproj", "{4EF6391A-DC20-446D-93B8-343B11EA0DC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCore", "src\AspNetCore\AspNetCore.csproj", "{4EF6391A-DC20-446D-93B8-343B11EA0DC6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{67C5B02B-F64E-4333-8188-2358F9D30D38} = {67C5B02B-F64E-4333-8188-2358F9D30D38}
 		{87219B50-5B62-40F0-A085-BFC1375C2F8E} = {87219B50-5B62-40F0-A085-BFC1375C2F8E}
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetCoreComponentLibrary", "..\AspNetCoreComponentLibrary\src\AspNetCoreComponentLibrary\AspNetCoreComponentLibrary.xproj", "{67C5B02B-F64E-4333-8188-2358F9D30D38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreComponentLibrary", "..\AspNetCoreComponentLibrary\src\AspNetCoreComponentLibrary\AspNetCoreComponentLibrary.csproj", "{67C5B02B-F64E-4333-8188-2358F9D30D38}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetCoreSqlite", "..\AspNetCoreSqlite\src\AspNetCoreSqlite\AspNetCoreSqlite.xproj", "{87219B50-5B62-40F0-A085-BFC1375C2F8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreSqlite", "..\AspNetCoreSqlite\src\AspNetCoreSqlite\AspNetCoreSqlite.csproj", "{87219B50-5B62-40F0-A085-BFC1375C2F8E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{67C5B02B-F64E-4333-8188-2358F9D30D38} = {67C5B02B-F64E-4333-8188-2358F9D30D38}
 	EndProjectSection
