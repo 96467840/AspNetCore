@@ -2,6 +2,11 @@
 @{
     ViewData["Title"] = "Home Page";
     if (Context.Request.IsAjaxRequest()) { }
+    if (Model == null)
+    {
+        //throw new Exception("Model is null");
+        return;
+    }
 }
 
 @await Component.InvokeAsync(nameof(BreadcrumbComponent), new { vm = Model.Breadcrumb })
@@ -10,8 +15,16 @@
     <a href="#" class="jsc-uts" data-onclickurl="/"
        data-prompt="Are you sure?" data-method="post" data-target=".body-content"
        data-insertionmode="replace">Click me!</a>
-    @await Component.InvokeAsync(nameof(TestComponent), new { text = "привет мир"})
+
+    @await Component.InvokeAsync(nameof(TestComponent), new { text = "привет мир" })
 </div>
-<div>
-    Update to 2017
-</div>
+
+@if (Model.Sites != null)
+{
+    <ul>
+        @foreach (var site in Model.Sites)
+        {
+            <li>@site.Id @site.Name</li>
+        }
+    </ul>
+}

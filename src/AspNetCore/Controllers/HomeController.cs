@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AspNetCoreComponentLibrary;
 using Microsoft.Extensions.Logging;
+using AspNetCoreComponentLibrary.Abstractions;
 
 namespace AspNetCore.Controllers
 {
@@ -12,16 +13,18 @@ namespace AspNetCore.Controllers
     {
         // для доступа из моделей
         public readonly ILogger<HomeController> Logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        
+        public HomeController(IStorage storage, ILogger<HomeController> logger):base(storage)
         {
             Logger = logger;
+            
             Logger.LogInformation("Home constructor", new object[0]);
         }
 
         public IActionResult Index(PageIM im)
         {
             Logger.LogInformation("Home index", new object[0]);
+            //var tmp = Storage.GetRepository<ISiteRepository>().All();
             return im.ToActionResult(this);
         }
 

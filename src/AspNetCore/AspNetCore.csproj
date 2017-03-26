@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\AspNetCoreComponentLibrary\src\AspNetCoreComponentLibrary\AspNetCoreComponentLibrary.csproj" />
+    <ProjectReference Include="..\..\..\AspNetCoreSqlite\src\AspNetCoreSqlite\AspNetCoreSqlite.csproj" />
   </ItemGroup>
 
   <ItemGroup>

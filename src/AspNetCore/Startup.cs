@@ -15,6 +15,8 @@ using System.Text.Unicode;
 using System.Text.Encodings.Web;
 using NLog.Extensions.Logging;
 using NLog.Web;
+using AspNetCoreSqlite;
+using AspNetCoreComponentLibrary.Abstractions;
 
 namespace AspNetCore
 {
@@ -47,7 +49,12 @@ namespace AspNetCore
             // Add framework services.
             services.AddMvc();
 
-            // чтобы во вьюхах руские символы не кодировались
+            // Setup options with DI
+            services.AddOptions();
+            services.Configure<SQLiteConfigure>(Configuration.GetSection("SQLiteConfigure"));
+            services.AddScoped<IStorage, AspNetCoreSqlite.Storage>();
+
+            // чтобы во вьюхах русские символы не кодировались
             services.Configure<WebEncoderOptions>(options =>
             {
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All);
