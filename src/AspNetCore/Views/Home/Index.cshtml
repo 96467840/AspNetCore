@@ -11,6 +11,12 @@
 
 @await Component.InvokeAsync(nameof(BreadcrumbComponent), new { vm = Model.Breadcrumb })
 
+@if (Model!=null && Model.Error != null)
+{
+    <div class="alert alert-danger">@Model.Error.Message</div>
+    <div>@Model.Error</div>
+    return;
+}
 <div>
     <a href="#" class="jsc-uts" data-onclickurl="/"
        data-prompt="Are you sure?" data-method="post" data-target=".body-content"
