@@ -11,20 +11,15 @@ namespace AspNetCore.Controllers
 {
     public class HomeController : Controller2Garin
     {
-        // для доступа из моделей
-        public readonly ILogger<HomeController> Logger;
-        
-        public HomeController(IStorage storage, ILogger<HomeController> logger):base(storage)
+
+        public HomeController(IStorage storage, ILoggerFactory loggerFactory) : base(storage, loggerFactory)
         {
-            Logger = logger;
-            
             Logger.LogInformation("Home constructor", new object[0]);
         }
 
         public IActionResult Index(PageIM im)
         {
             Logger.LogInformation("Home index", new object[0]);
-            //var tmp = Storage.GetRepository<ISiteRepository>().All();
             return im.ToActionResult(this);
         }
 
