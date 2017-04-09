@@ -52,6 +52,7 @@ namespace AspNetCore
             // Setup options with DI
             services.AddOptions();
             services.Configure<SQLiteConfigure>(Configuration.GetSection("SQLiteConfigure"));
+            // обязательно AddScoped (ибо в каждом запросе мы юзаем 2 БД)
             services.AddScoped<IStorage, AspNetCoreSqlite.Storage>();
 
             // чтобы во вьюхах русские символы не кодировались
@@ -70,7 +71,7 @@ namespace AspNetCore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IStorage Storage)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -96,6 +97,9 @@ namespace AspNetCore
                 routes.MapRoute("Setup", "setup", new { controller = "Setup", action = "Index" });
                 routes.MapRoute("Page", "{lang?}/{page?}/", new { controller = "Home", action = "Index" });
             });
+
+            //DbInitializer.Initialize(context);
+            Storage.UpdateDBs();
         }
     }
 }
