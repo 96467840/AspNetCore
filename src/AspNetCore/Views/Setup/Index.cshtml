@@ -1,4 +1,5 @@
 @model SetupVM
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -15,7 +16,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Site hostname (localhost, example.com)</label>
         <div class="col-sm-7">
-            <input type="text" name="host" class="form-control" placeholder="Host" value="@Model.">
+            <input type="text" name="host" class="form-control" placeholder="Host" value="@Model.Input.Host">
             @*<input asp-for="host" class="form-control" />*@
         </div>
         <div asp-validation-for="host" class="text-danger col-sm-3"></div>
