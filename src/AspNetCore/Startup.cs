@@ -17,6 +17,7 @@ using NLog.Extensions.Logging;
 using NLog.Web;
 using AspNetCoreSqlite;
 using AspNetCoreComponentLibrary.Abstractions;
+using AspNetCoreComponentLibrary;
 
 namespace AspNetCore
 {
@@ -93,12 +94,9 @@ namespace AspNetCore
 
             app.UseMvc(routes =>
             {
-                //routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
-                routes.MapRoute("Setup", "setup", new { controller = "Setup", action = "Index" });
-                routes.MapRoute("Page", "{lang?}/{page?}/", new { controller = "Home", action = "Index" });
+                DefaultRoutes.Register(routes, app);
             });
 
-            //DbInitializer.Initialize(context);
             Storage.UpdateDBs();
         }
     }
