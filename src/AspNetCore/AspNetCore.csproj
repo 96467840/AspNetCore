@@ -15,6 +15,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="PublishOutput\**" />
+    <Content Remove="PublishOutput\**" />
+    <EmbeddedResource Remove="PublishOutput\**" />
+    <None Remove="PublishOutput\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="wwwroot\images\**\*;wwwroot\lib\**\*.min.js;wwwroot\lib\**\*.min.css;wwwroot\lib\**\fonts\*.*;wwwroot\js\**\*.min.js;wwwroot\css\**\*.min.css;wwwroot\favicon.ico;wwwroot\_references.js;nlog.*">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>

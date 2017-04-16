@@ -1,0 +1,36 @@
+﻿@model PageVM
+@{
+    ViewData["Title"] = "Home Page";
+    if (Context.Request.IsAjaxRequest()) { }
+    if (Model == null)
+    {
+        //throw new Exception("Model is null");
+        return;
+    }
+}
+
+@await Component.InvokeAsync(nameof(BreadcrumbComponent), new { vm = Model.Breadcrumb })
+
+@if (Model!=null && Model.Error != null)
+{
+    <div class="alert alert-danger">@Model.Error.Message</div>
+    <div>@Model.Error</div>
+    return;
+}
+<div>
+    <a href="#" class="jsc-uts" data-onclickurl="/"
+       data-prompt="Are you sure?" data-method="post" data-target=".body-content"
+       data-insertionmode="replace">Click me!</a>
+
+    @await Component.InvokeAsync(nameof(TestComponent), new { text = "привет мир" })
+</div>
+
+@if (Model.Sites != null)
+{
+    <ul>
+        @foreach (var site in Model.Sites)
+        {
+            <li>@site.Id @site.Name @site.Created</li>
+        }
+    </ul>
+}

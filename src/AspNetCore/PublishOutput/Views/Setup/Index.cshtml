@@ -1,0 +1,44 @@
+@model SetupVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Setup</h2>
+<form method="post" class="form-horizontal">
+    <input type="hidden" name="back" value="@Model.Input.Back" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Site name</label>
+        <div class="col-sm-10">
+            <input type="text" name="site" class="form-control" placeholder="Site name" value="@Model.Input.Site" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Site hostname (localhost, example.com)</label>
+        <div class="col-sm-7">
+            <input type="text" name="host" class="form-control" placeholder="Host" value="@Model.Input.Host" />
+            @*<input asp-for="host" class="form-control" />*@
+        </div>
+        <div asp-validation-for="host" class="text-danger col-sm-3"></div>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" value="@Model.Input.Email" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Setup</button>
+        </div>
+    </div>
+</form>
+
