@@ -241,6 +241,6 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
-**/wwwroot/lib/
-**/wwwroot/js/
-**/wwwroot/css/
+**/AspNetCore/wwwroot/lib/
+**/AspNetCore/wwwroot/js/
+**/AspNetCore/wwwroot/css/

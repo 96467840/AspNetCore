@@ -1,0 +1,42 @@
+{
+  "name": "unobtrusive-typescript",
+  "homepage": "http://2garin.com/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/96467840/unobtrusive-typescript.git"
+  },
+  "authors": [
+    "Andrey Murin <96467840@mail.ru>"
+  ],
+  "description": "Common typescript lib for 2garin project",
+  "keywords": [
+    "unobtrusive",
+    "typescript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "demo",
+    "lib",
+    "tests",
+    "*.txt"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.7.2"
+  },
+  "main": "dist/unobtrusive-typescript.ts",
+  "version": "0.1.4",
+  "_release": "0.1.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.4",
+    "commit": "242f4ddc3c42b469ced5307684269efe0baf5ba6"
+  },
+  "_source": "https://github.com/96467840/unobtrusive-typescript.git",
+  "_target": "v0.1.4",
+  "_originalSource": "unobtrusive-typescript",
+  "_direct": true
+}
