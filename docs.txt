@@ -76,8 +76,9 @@ systemctl enable kestrel-core.service
 systemctl start kestrel-core.service
 systemctl stop kestrel-core.service
 systemctl restart kestrel-core.service
-systemctl status kestrel-core.service
+sudo systemctl status kestrel-core.service
 
 systemctl reload httpd.service
 
 конфиги кестрела /etc/systemd/system/
+логи в линуксе пишутся сюда /var/log/messages

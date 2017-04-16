@@ -74,11 +74,10 @@
     </None>
   </ItemGroup>-->
 
-  <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
+  <!--<Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
     <Exec Command="bower install" />
     <Exec Command="webpack -p" />
     <Exec Command="gulp sass" />
-    <!--<Exec Command="dotnet build -r centos.7-x64 -c Release" />-->
-  </Target>
+  </Target>-->
 
 </Project>
