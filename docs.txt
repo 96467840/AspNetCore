@@ -79,3 +79,5 @@ systemctl restart kestrel-core.service
 systemctl status kestrel-core.service
 
 systemctl reload httpd.service
+
+конфиги кестрела /etc/systemd/system/
