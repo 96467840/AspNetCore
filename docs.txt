@@ -77,3 +77,5 @@ systemctl start kestrel-core.service
 systemctl stop kestrel-core.service
 systemctl restart kestrel-core.service
 systemctl status kestrel-core.service
+
+systemctl reload httpd.service
