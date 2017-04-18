@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace AspNetCore.Controllers
 {
+    // этот контролер получает управление когда произошла ошибка (возможно что сайт не найден)
     public class ErrorController : Controller
     {
         public IStorage Storage;
