@@ -24,8 +24,8 @@ namespace AspNetCore.Controllers
             Logger = LoggerFactory.CreateLogger(this.GetType().FullName);
             Storage = storage;
 
-            Sites = Storage.GetRepository<ISiteRepository>(false);
-            Users = Storage.GetRepository<IUserRepository>(false);
+            Sites = Storage.GetRepository<ISiteRepository>(EnumDB.UserSites);
+            Users = Storage.GetRepository<IUserRepository>(EnumDB.UserSites);
         }
 
         public IActionResult Index()
