@@ -32,7 +32,7 @@ namespace AspNetCore.Test
             }
         }
 
-        public void AfterSave(Sites item)
+        public void AfterSave(Sites item, bool isnew)
         {
             throw new NotImplementedException();
         }
