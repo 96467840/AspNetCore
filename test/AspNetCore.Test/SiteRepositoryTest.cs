@@ -6,7 +6,7 @@ using AspNetCoreComponentLibrary;
 using Microsoft.Extensions.Logging;
 using System.Linq;
 
-namespace AspNetCore.Test
+namespace AspNetCore
 {
     public class SiteRepositoryTest : ISiteRepository
     {

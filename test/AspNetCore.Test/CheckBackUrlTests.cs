@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using Xunit;
 
-namespace AspNetCore.Test
+namespace AspNetCore
 {
     public class CheckBackUrlTests
     {
