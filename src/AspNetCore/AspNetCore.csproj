@@ -69,7 +69,9 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Folder Include="Controllers\Admin\" />
     <Folder Include="Views\Setup\" />
+    <Folder Include="Views\Shared\Admin\" />
   </ItemGroup>
 
   <!--<ItemGroup>

@@ -18,6 +18,7 @@ using NLog.Web;
 using AspNetCoreSqlite;
 using AspNetCoreComponentLibrary.Abstractions;
 using AspNetCoreComponentLibrary;
+using Microsoft.AspNetCore.Routing;
 
 namespace AspNetCore
 {
@@ -61,6 +62,9 @@ namespace AspNetCore
             {
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All);
             });
+
+            // генерируем урлы в низком регистре (так как для и линукса делаем, а там привычнее когда все пути в низком регистре)
+            services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
             // конфигурируем подгрузку представлений из библиотеки
             var assembly = typeof(AspNetCoreComponentLibrary.TestComponent).GetTypeInfo().Assembly;
