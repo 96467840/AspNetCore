@@ -14,12 +14,12 @@ namespace AspNetCore.Controllers
 
         public HomeController(IStorage storage, ILoggerFactory loggerFactory) : base(storage, loggerFactory)
         {
-            Logger.LogInformation("Home constructor", new object[0]);
+            Logger.LogTrace("Home constructor");
         }
 
         public IActionResult Index(PageIM im)
         {
-            Logger.LogInformation("Home index", new object[0]);
+            Logger.LogTrace("Home index");
             return im.ToActionResult(this);
         }
 

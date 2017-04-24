@@ -1,36 +1,36 @@
-Файл со ссылками на различную документацию так или иначе связанную с проектом
+Р¤Р°Р№Р» СЃРѕ СЃСЃС‹Р»РєР°РјРё РЅР° СЂР°Р·Р»РёС‡РЅСѓСЋ РґРѕРєСѓРјРµРЅС‚Р°С†РёСЋ С‚Р°Рє РёР»Рё РёРЅР°С‡Рµ СЃРІСЏР·Р°РЅРЅСѓСЋ СЃ РїСЂРѕРµРєС‚РѕРј
 
-решение проблемы со старой версией nodejs (студия идет со своим набором утилит)
+СЂРµС€РµРЅРёРµ РїСЂРѕР±Р»РµРјС‹ СЃРѕ СЃС‚Р°СЂРѕР№ РІРµСЂСЃРёРµР№ nodejs (СЃС‚СѓРґРёСЏ РёРґРµС‚ СЃРѕ СЃРІРѕРёРј РЅР°Р±РѕСЂРѕРј СѓС‚РёР»РёС‚)
 https://blogs.msdn.microsoft.com/webdev/2015/03/19/customize-external-web-tools-in-visual-studio-2015/
 
-для region in typescripts установить 
+РґР»СЏ region in typescripts СѓСЃС‚Р°РЅРѕРІРёС‚СЊ 
 https://marketplace.visualstudio.com/search?term=Web%20Essentials&target=VS&category=Tools&vsVersion=&subCategory=All&sortBy=Relevance
 
-документация на ASP.NET Core 
+РґРѕРєСѓРјРµРЅС‚Р°С†РёСЏ РЅР° ASP.NET Core 
 https://docs.microsoft.com/ru-ru/aspnet/core/fundamentals/logging
 
-документация по .NET Core
+РґРѕРєСѓРјРµРЅС‚Р°С†РёСЏ РїРѕ .NET Core
 https://docs.microsoft.com/ru-ru/dotnet/articles/core/tutorials/
 
-модульное тестирвоание
+РјРѕРґСѓР»СЊРЅРѕРµ С‚РµСЃС‚РёСЂРІРѕР°РЅРёРµ
 https://docs.microsoft.com/ru-ru/dotnet/articles/core/testing/
 
-Подробный обзор асинхронного программирования
+РџРѕРґСЂРѕР±РЅС‹Р№ РѕР±Р·РѕСЂ Р°СЃРёРЅС…СЂРѕРЅРЅРѕРіРѕ РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёСЏ
 https://docs.microsoft.com/ru-ru/dotnet/articles/standard/async-in-depth
 
-документация на NLog
+РґРѕРєСѓРјРµРЅС‚Р°С†РёСЏ РЅР° NLog
 http://nlog-project.org/
 https://github.com/NLog/NLog/wiki/Tutorial
 
-запуск на линуксе
+Р·Р°РїСѓСЃРє РЅР° Р»РёРЅСѓРєСЃРµ
 https://docs.microsoft.com/en-us/aspnet/core/publishing/apache-proxy
 
 Task-based Asynchronous Pattern (TAP)
 https://msdn.microsoft.com/library/hh873175.aspx
 
-project.json формат
+project.json С„РѕСЂРјР°С‚
 https://docs.microsoft.com/en-us/dotnet/articles/core/tools/project-json
-идентификаторы систем
+РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹ СЃРёСЃС‚РµРј
 https://docs.microsoft.com/en-us/dotnet/articles/core/rid-catalog
 
 Bundler & Minifier wiki!
@@ -39,34 +39,34 @@ https://github.com/madskristensen/BundlerMinifier/wiki
 typescript, react, webpack
 https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
 
-установить typescript для студии
+СѓСЃС‚Р°РЅРѕРІРёС‚СЊ typescript РґР»СЏ СЃС‚СѓРґРёРё
 https://www.microsoft.com/en-us/download/details.aspx?id=48593
 
-про webpack со студией
+РїСЂРѕ webpack СЃРѕ СЃС‚СѓРґРёРµР№
 https://habrahabr.ru/post/278103/
 
-настроить переменную окружения
+РЅР°СЃС‚СЂРѕРёС‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ РѕРєСЂСѓР¶РµРЅРёСЏ
 setx ASPNETCORE_ENVIRONMENT "Development"
 setx ASPNETCORE_ENVIRONMENT "Production"
 
-включить *.test на локальной машине http://www.lakshmikanth.com/enable-external-request-on-iis-express/
-файрвол наверное можно не трогать, а вот это делать обязательно (без этого иис экспрпес незапускается и все):
+РІРєР»СЋС‡РёС‚СЊ *.test РЅР° Р»РѕРєР°Р»СЊРЅРѕР№ РјР°С€РёРЅРµ http://www.lakshmikanth.com/enable-external-request-on-iis-express/
+С„Р°Р№СЂРІРѕР» РЅР°РІРµСЂРЅРѕРµ РјРѕР¶РЅРѕ РЅРµ С‚СЂРѕРіР°С‚СЊ, Р° РІРѕС‚ СЌС‚Рѕ РґРµР»Р°С‚СЊ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ (Р±РµР· СЌС‚РѕРіРѕ РёРёСЃ СЌРєСЃРїСЂРїРµСЃ РЅРµР·Р°РїСѓСЃРєР°РµС‚СЃСЏ Рё РІСЃРµ):
 netsh http add urlacl url=http://*:56236/ user=...
-эта команды чистит предидущую
+СЌС‚Р° РєРѕРјР°РЅРґС‹ С‡РёСЃС‚РёС‚ РїСЂРµРґРёРґСѓС‰СѓСЋ
 netsh http delete urlacl url=http://*:56236/
 
-полезная ссылка
+РїРѕР»РµР·РЅР°СЏ СЃСЃС‹Р»РєР°
 https://habrahabr.ru/post/276277/
 
 
 MATERIAL DESIGN LITE 
 https://getmdl.io/
 
-ГАЙД ПО МАТЕРИАЛУ
+Р“РђР™Р” РџРћ РњРђРўР•Р РРђР›РЈ
 https://material.io/guidelines/
 
 
-Для отключения компиляции TypeScript при сборке проекта используется параметр <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked> в первой секции <PropertyGroup> файла проекта .csproj.
+Р”Р»СЏ РѕС‚РєР»СЋС‡РµРЅРёСЏ РєРѕРјРїРёР»СЏС†РёРё TypeScript РїСЂРё СЃР±РѕСЂРєРµ РїСЂРѕРµРєС‚Р° РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РїР°СЂР°РјРµС‚СЂ <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked> РІ РїРµСЂРІРѕР№ СЃРµРєС†РёРё <PropertyGroup> С„Р°Р№Р»Р° РїСЂРѕРµРєС‚Р° .csproj.
 
 bower install unobtrusive-typescript --save
 
@@ -80,5 +80,5 @@ sudo systemctl status kestrel-core.service
 
 systemctl reload httpd.service
 
-конфиги кестрела /etc/systemd/system/
-логи в линуксе пишутся сюда /var/log/messages
+РєРѕРЅС„РёРіРё РєРµСЃС‚СЂРµР»Р° /etc/systemd/system/
+Р»РѕРіРё РІ Р»РёРЅСѓРєСЃРµ РїРёС€СѓС‚СЃСЏ СЃСЋРґР° /var/log/messages
