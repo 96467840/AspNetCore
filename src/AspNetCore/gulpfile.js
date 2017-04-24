@@ -6,7 +6,7 @@ var sass = require( 'gulp-sass' );
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 
-var project = { webroot: './webroot'};//require( './project.json' );
+var project = { webroot: './wwwroot'};//require( './project.json' );
 
 var stylesrc = [project.webroot + '/sass/*.scss'];
 var stylesrc_watch = [project.webroot + '/sass/**/*.scss'];

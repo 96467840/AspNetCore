@@ -26,6 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\sass\admin.scss" />
+    <Content Include="wwwroot\sass\components\loading.scss" />
+    <Content Include="wwwroot\sass\components\reset.scss" />
+    <Content Include="wwwroot\sass\default.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="wwwroot\images\**\*;wwwroot\lib\**\*.min.js;wwwroot\lib\**\*.min.css;wwwroot\lib\**\fonts\*.*;wwwroot\js\**\*.min.js;wwwroot\css\**\*.min.css;wwwroot\favicon.ico;wwwroot\_references.js;nlog.*">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
