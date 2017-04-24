@@ -14,7 +14,7 @@
 @if (Model!=null && Model.Error != null)
 {
     <div class="alert alert-danger">@Model.Error.Message</div>
-    <div>@Model.Error</div>
+    <pre>@Model.Error</pre>
     return;
 }
 <div>

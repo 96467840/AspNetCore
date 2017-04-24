@@ -22,13 +22,13 @@ namespace AspNetCore
             };
         }
 
-        public Sites this[long? index]
+        public Sites this[long index]
         {
             get
             {
-                if (index == null) return default(Sites);
-                if (!coll.ContainsKey(index.Value)) return default(Sites);
-                return coll[index.Value];
+                //if (index == null) return default(Sites);
+                if (!coll.ContainsKey(index)) return default(Sites);
+                return coll[index];
             }
         }
 

@@ -101,7 +101,8 @@ namespace AspNetCore
                 DefaultRoutes.Register(routes, app);
             });
 
-            Storage.UpdateDBs();
+            // временно отключим миграции. слишком много шума в логах
+            //Storage.UpdateDBs();
         }
     }
 }
