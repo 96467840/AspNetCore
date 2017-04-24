@@ -28,15 +28,15 @@
     "jquery": ">= 1.7.2"
   },
   "main": "dist/unobtrusive-typescript.ts",
-  "version": "0.1.4",
-  "_release": "0.1.4",
+  "version": "0.1.5",
+  "_release": "0.1.5",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.4",
-    "commit": "242f4ddc3c42b469ced5307684269efe0baf5ba6"
+    "tag": "v0.1.5",
+    "commit": "b825dcb09b23e560f6da22a652716c3e41382887"
   },
   "_source": "https://github.com/96467840/unobtrusive-typescript.git",
-  "_target": "v0.1.4",
+  "_target": "v0.1.5",
   "_originalSource": "unobtrusive-typescript",
   "_direct": true
 }

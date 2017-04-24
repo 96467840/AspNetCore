@@ -6,9 +6,10 @@
     "jquery": "2.2.0",
     "jquery-validation": "1.16.0",
     "jquery-validation-unobtrusive": "3.2.6",
-    "unobtrusive-typescript": "v0.1.4"
+    "unobtrusive-typescript": "v0.1.5"
   },
   "resolutions": {
-    "jquery-validation": "1.16.0"
+    "jquery-validation": "1.16.0",
+    "unobtrusive-typescript": "v0.1.5"
   }
 }
