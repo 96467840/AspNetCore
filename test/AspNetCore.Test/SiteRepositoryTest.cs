@@ -42,7 +42,7 @@ namespace AspNetCore
             throw new NotImplementedException();
         }
 
-        public void Remove(long id)
+        public void Remove(Sites item)
         {
             throw new NotImplementedException();
         }
@@ -63,6 +63,21 @@ namespace AspNetCore
         }
 
         public void UnBlock(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveFromCache(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool BeforeSave(Sites item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddToCache(long index)
         {
             throw new NotImplementedException();
         }
