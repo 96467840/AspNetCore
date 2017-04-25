@@ -96,9 +96,28 @@ namespace AspNetCore
 
             app.UseStaticFiles();
 
+            Dictionary<string, RouteConfig> RoutesForReplace = null;
+            if (env.IsDevelopment())
+            {
+                RoutesForReplace = new Dictionary<string, RouteConfig>
+                {
+                    // чтобы не было конфликта с именем страницы (и шаблоном культуры) используем /t/ (имя страницы обязательно должно иметь длину больше 2 и отличаться от шаблона культуры)
+                    { "Test.Culture", new RouteConfig(100, "{culture}/t/{action}/{*path}", new { controller = "Test", action = "Index" }) },
+                    { "Test",         new RouteConfig(101, "t/{action}/{*path}", new { controller = "Test", action = "Index" }) },
+
+                    // если вдруг припрет сделать страницу с именем из 2 и менее букв, то необходимо для этой страницы переопределить правила вручную
+                    // например так
+                    { "ShortPageS.Culture", new RouteConfig(200, "{culture}/s/{*path}", new { controller = "Home", action = "Index", page="s" })},
+                    { "ShortPageS",         new RouteConfig(201, "s/{*path}", new { controller = "Home", action = "Index", page="s" })},
+                    
+                    // для 2 букв
+                    { "ShortPageSS.Culture", new RouteConfig(300, "{culture}/ss/{*path}", new { controller = "Home", action = "Index", page="ss" })},
+                    { "ShortPageSS",         new RouteConfig(301, "ss/{*path}", new { controller = "Home", action = "Index", page="ss" })},
+                };
+            }
             app.UseMvc(routes =>
             {
-                DefaultRoutes.Register(routes, app);
+                DefaultRoutes.Register(routes, app, RoutesForReplace);
             });
 
             // временно отключим миграции. слишком много шума в логах

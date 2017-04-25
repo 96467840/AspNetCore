@@ -23,5 +23,10 @@ namespace AspNetCore.Controllers
             return im.ToActionResult(this);
         }
 
+        public IActionResult Test()
+        {
+            Logger.LogTrace("Home test");
+            return View();
+        }
     }
 }
