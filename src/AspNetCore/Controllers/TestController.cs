@@ -44,11 +44,7 @@ namespace AspNetCore.Controllers
                 Sites.Save(site);
 
                 // добавим права пользователя user на сайт site (если их нет)
-                bool founded;
-                using (new BLog(LoggerMEF, "LoadFromDB", GetType().FullName))
-                {
-                    founded = user.UserSites.Any(i => i.SiteId == site.Id);
-                }
+                var founded = user.UserSites.Any(i => i.SiteId == site.Id);
                 if (!founded)
                 {
                     var us = new UserSites() { UserId = user.Id, SiteId = site.Id, Rights="rights "};
@@ -81,11 +77,7 @@ namespace AspNetCore.Controllers
                 Sites.Save(site);
 
                 // добавим права пользователя user на сайт site (если их нет)
-                bool founded;
-                using (new BLog(LoggerMEF, "LoadFromDB", GetType().FullName))
-                {
-                    founded = user.UserSites.Any(i => i.SiteId == site.Id && i.UserId == user.Id);
-                }
+                var founded = user.UserSites.Any(i => i.SiteId == site.Id && i.UserId == user.Id);
                 if (founded)
                 {
                     var us = new UserSites() { UserId = user.Id, SiteId = site.Id };
@@ -100,6 +92,36 @@ namespace AspNetCore.Controllers
 
 
             return View();
+        }
+
+        public IActionResult ErrorTest(string culture, string path)
+        {
+            Sites = Storage.GetRepository<ISiteRepository>(EnumDB.UserSites);
+            Users = Storage.GetRepository<IUserRepository>(EnumDB.UserSites);
+            var UserSites = Storage.GetRepository<IUserSiteRepository>(EnumDB.UserSites);
+
+            var user = Users[1]; // грузим юзера и его связи с сайтами
+            var site = Sites[2]; // грузим сайт
+
+            if (site != null)
+            {
+                site.Name = "New name 2 " + DateTime.Now;
+
+                Sites.Save(site);
+
+                // добавим права пользователя user на сайт site (с нарушением ограничения)
+                {
+                    var us = new UserSites() { UserId = user.Id, SiteId = site.Id, Rights = "rights " };
+                    UserSites.Save(us);
+                }
+
+                Storage.Save();
+
+                Users.AfterSave(user, false);
+                Sites.AfterSave(site, false);
+            }
+
+            return Utils.ContentResult("ErrorTest Ok");
         }
 
     }
