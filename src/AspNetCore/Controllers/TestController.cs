@@ -14,6 +14,7 @@ namespace AspNetCore.Controllers
         public IStorage Storage;
         public readonly ILoggerFactory LoggerFactory;
         public readonly ILogger Logger;
+        public readonly ILogger LoggerMEF;
 
         public ISiteRepository Sites { get; set; }
         public IUserRepository Users { get; set; }
@@ -22,6 +23,7 @@ namespace AspNetCore.Controllers
         {
             LoggerFactory = loggerFactory;
             Logger = LoggerFactory.CreateLogger(this.GetType().FullName);
+            LoggerMEF = LoggerFactory.CreateLogger(Utils.MEFNameSpace);
             Storage = storage;
         }
 
@@ -42,27 +44,21 @@ namespace AspNetCore.Controllers
                 Sites.Save(site);
 
                 // добавим права пользователя user на сайт site (если их нет)
-                if (!user.UserSites.Any(i=>i.SiteId == site.Id))
+                bool founded;
+                using (new BLog(LoggerMEF, "LoadFromDB", GetType().FullName))
+                {
+                    founded = user.UserSites.Any(i => i.SiteId == site.Id);
+                }
+                if (!founded)
                 {
                     var us = new UserSites() { UserId = user.Id, SiteId = site.Id, Rights="rights "};
                     UserSites.Save(us);
-                    //site.UserSites.Add(us);
-                    
-                    //user.UserSites.Add(us); // вот это тоже делать не стоит так как приводит к сохранению самого юзера тоже (причем в инсерт режиме)
-
-                    //Users.Save(user); // это делать не будем по идее сам юзер не изменился изменилась тока связь (скорее всего через инсерт)
-
-                    // обязательно удалить юзера из кеша
-                    //Users.RemoveFromCache(user.Id);
                 }
 
                 Storage.Save();
 
                 Users.AfterSave(user, false);
                 Sites.AfterSave(site, false);
-
-                Users.AddToCache(user.Id);
-                Sites.AddToCache(site.Id);
             }
 
 
@@ -85,9 +81,14 @@ namespace AspNetCore.Controllers
                 Sites.Save(site);
 
                 // добавим права пользователя user на сайт site (если их нет)
-                if (user.UserSites.Any(i => i.SiteId == site.Id && i.UserId==user.Id))
+                bool founded;
+                using (new BLog(LoggerMEF, "LoadFromDB", GetType().FullName))
                 {
-                    var us = new UserSites() { UserId = user.Id, SiteId = site.Id, Rights = "rights " };
+                    founded = user.UserSites.Any(i => i.SiteId == site.Id && i.UserId == user.Id);
+                }
+                if (founded)
+                {
+                    var us = new UserSites() { UserId = user.Id, SiteId = site.Id };
                     UserSites.Remove(us);
                 }
 
@@ -95,9 +96,6 @@ namespace AspNetCore.Controllers
 
                 Users.AfterSave(user, false);
                 Sites.AfterSave(site, false);
-
-                Users.AddToCache(user.Id);
-                Sites.AddToCache(site.Id);
             }
 
 

@@ -81,5 +81,10 @@ namespace AspNetCore
         {
             throw new NotImplementedException();
         }
+
+        public List<UserSites> GetUserRights(long siteid)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
