@@ -91,7 +91,7 @@ namespace AspNetCore
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/e");
             }
 
             app.UseStaticFiles();

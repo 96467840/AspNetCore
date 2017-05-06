@@ -25,6 +25,12 @@
     @await Component.InvokeAsync(nameof(TestComponent), new { text = "привет мир" })
 </div>
 
+<div>
+    page: @Model.Input.Page 
+    <br />
+    culture: @Model.Input.Culture
+</div>
+
 @if (Model.Sites != null)
 {
     <ul>
