@@ -9,6 +9,7 @@ using AspNetCoreComponentLibrary.Abstractions;
 
 namespace AspNetCore
 {
+    [AdminControllerSettings(MenuName = "menus.name", Priority = 10)]
     public class MenusController : ControllerEditable<long, Menus, IMenuRepository>
     {
         public MenusController(IStorage storage, ILoggerFactory loggerFactory) : base(storage, loggerFactory)
