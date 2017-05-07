@@ -18,10 +18,12 @@ namespace AspNetCore.Controllers
         {
             Logger.LogTrace("Home constructor");
 
+            /*
             var type = typeof(SharedResource);
             var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
             var _localizer = localizerFactory.Create(type);
             var _localizer2 = localizerFactory.Create("SharedResource", assemblyName);
+            /**/
         }
 
         public IActionResult Index(PageIM im)
