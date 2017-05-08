@@ -19,6 +19,8 @@ using AspNetCoreSqlite;
 using AspNetCoreComponentLibrary.Abstractions;
 using AspNetCoreComponentLibrary;
 using Microsoft.AspNetCore.Routing;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace AspNetCore
 {
@@ -48,8 +50,12 @@ namespace AspNetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+
             // Add framework services.
-            services.AddMvc();
+            services.AddMvc()
+                //.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix) //Adds support for localized view files. In this sample view localization is based on the view file suffix. For example "fr" in the Index.fr.cshtml file.
+                .AddDataAnnotationsLocalization();
 
             // Setup options with DI
             services.AddOptions();
@@ -93,6 +99,21 @@ namespace AspNetCore
             {
                 app.UseExceptionHandler("/e");
             }
+
+            // нам такой вариант не подходит у нас разный список культур, для каждого сайта свой
+            /*var supportedCultures = new[]
+            {
+                    new CultureInfo("en-US"),
+                    new CultureInfo("fr")
+            };
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-US"),
+                // Formatting numbers, dates, etc.
+                SupportedCultures = supportedCultures,
+                // UI strings that we have localized.
+                SupportedUICultures = supportedCultures
+            });/**/
 
             app.UseStaticFiles();
 

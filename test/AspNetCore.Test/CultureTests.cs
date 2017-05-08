@@ -21,8 +21,8 @@ namespace AspNetCore.Test
         [InlineData("")]
         [InlineData("r")]
         [InlineData("--")]
-        [InlineData("1u-ru")]
-        [InlineData(".u-ru")]
+        [InlineData("1u-RU")]
+        [InlineData(".u-RU")]
         [InlineData("ru-!U")]
         [InlineData("1u")]
         [InlineData("ruRU")]
@@ -31,6 +31,12 @@ namespace AspNetCore.Test
         [InlineData("ru-qwe")]
         [InlineData("-----")]
         [InlineData("----")]
+        [InlineData("ru-ru")]
+        [InlineData("ru-Ru")]
+        [InlineData("Ru-RU")]
+        [InlineData("RU-ru")]
+        [InlineData("Ru")]
+        [InlineData("RU")]
         public void TestNotValidCulture(string culture)
         {
             Assert.False(culture.TestCulture());
