@@ -31,12 +31,13 @@ namespace AspNetCore.Test
         [InlineData("ru-qwe")]
         [InlineData("-----")]
         [InlineData("----")]
-        [InlineData("ru-ru")]
-        [InlineData("ru-Ru")]
-        [InlineData("Ru-RU")]
-        [InlineData("RU-ru")]
-        [InlineData("Ru")]
-        [InlineData("RU")]
+        // у нас культура в пути, а там низкий регистр, так что за регистром следим сами
+        //[InlineData("ru-ru")]
+        //[InlineData("ru-Ru")]
+        //[InlineData("Ru-RU")]
+        //[InlineData("RU-ru")]
+        //[InlineData("Ru")]
+        //[InlineData("RU")]
         public void TestNotValidCulture(string culture)
         {
             Assert.False(culture.TestCulture());

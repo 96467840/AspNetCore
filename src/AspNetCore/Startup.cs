@@ -54,7 +54,8 @@ namespace AspNetCore
 
             // Add framework services.
             services.AddMvc()
-                //.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix) //Adds support for localized view files. In this sample view localization is based on the view file suffix. For example "fr" in the Index.fr.cshtml file.
+                // локализацию шаблонов мы не юзаем, но мы юзаем инжект на вьюхах (IViewLocalizer)
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix) //Adds support for localized view files. In this sample view localization is based on the view file suffix. For example "fr" in the Index.fr.cshtml file.
                 .AddDataAnnotationsLocalization();
 
             // Setup options with DI
@@ -101,10 +102,9 @@ namespace AspNetCore
             }
 
             // нам такой вариант не подходит у нас разный список культур, для каждого сайта свой
-            /*var supportedCultures = new[]
+            var supportedCultures = new[]
             {
-                    new CultureInfo("en-US"),
-                    new CultureInfo("fr")
+                new CultureInfo("en-US"),
             };
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
