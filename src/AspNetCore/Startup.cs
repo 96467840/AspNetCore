@@ -36,13 +36,13 @@ namespace AspNetCore
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            if (env.IsDevelopment())
+            if (env.IsProduction())
             {
-                env.ConfigureNLog("nlog.config");
+                env.ConfigureNLog("nlog.Production.config");
             }
             else
             {
-                env.ConfigureNLog("nlog.linux.config");
+                env.ConfigureNLog("nlog.config");
             }
         }
 
