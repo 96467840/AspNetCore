@@ -19,9 +19,10 @@
     <target name="ownFile-web" xsi:type="AsyncWrapper" queueLimit="10000" timeToSleepBetweenBatches="1000" batchSize="1000" overflowAction="Grow">
       <target xsi:type="File" 
               fileName=       "/var/www/2garin.com/core/logs/debug.log"
-              archiveFileName="/var/www/2garin.com/core/logs/debug-${shortdate}-{#}.log"
+              archiveFileName="/var/www/2garin.com/core/logs/debug-{#}.log"
               archiveEvery="Hour"
-              archiveNumbering="Rolling"
+              archiveNumbering="Date"
+              archiveDateFormat="yyyy-MM-dd_HH-mm-ss"
               maxArchiveFiles="168"
               layout="${longdate}|${logger}|${uppercase:${level}}|${aspnet-request-url:IncludeQueryString=true}${newline}    ${message} ${exception}${newline}${newline}" />
     </target>
