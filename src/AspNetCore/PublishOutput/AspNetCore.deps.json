@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "4890a60c66551ab51db331cf1710a2d13e68f2f9"
+    "signature": "c413577a06ea63ed3242fc8d84b2ded1fd6fc840"
   },
   "compilationOptions": {
     "defines": [
@@ -47,9 +47,9 @@
           "Microsoft.NETCore.App": "1.1.1",
           "Microsoft.VisualStudio.Web.BrowserLink": "1.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "1.1.0",
-          "NLog.Config": "4.4.4",
+          "NLog.Config": "4.4.9",
           "NLog.Extensions.Logging": "1.0.0-rtm-beta4",
-          "NLog.Schema": "4.4.4",
+          "NLog.Schema": "4.4.9",
           "NLog.Web.AspNetCore": "4.3.1"
         },
         "runtime": {
@@ -525,6 +525,20 @@
         },
         "compile": {
           "lib/netstandard1.6/Microsoft.AspNetCore.Mvc.Razor.Host.dll": {}
+        }
+      },
+      "microsoft.aspnetcore.mvc.razor.viewcompilation/1.1.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting": "1.1.1",
+          "Microsoft.AspNetCore.Mvc.Razor": "1.1.2",
+          "Microsoft.Extensions.CommandLineUtils": "1.1.0",
+          "Microsoft.NETCore.App": "1.1.1"
+        },
+        "runtime": {
+          "lib/netcoreapp1.1/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation.dll": {}
+        },
+        "compile": {
+          "lib/netcoreapp1.1/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation.dll": {}
         }
       },
       "microsoft.aspnetcore.mvc.taghelpers/1.1.2": {
@@ -1479,10 +1493,10 @@
           "lib/netstandard1.5/NLog.dll": {}
         }
       },
-      "nlog.config/4.4.4": {
+      "nlog.config/4.4.9": {
         "dependencies": {
           "NLog": "5.0.0-beta06",
-          "NLog.Schema": "4.4.4"
+          "NLog.Schema": "4.4.9"
         }
       },
       "nlog.extensions.logging/1.0.0-rtm-beta4": {
@@ -1498,7 +1512,7 @@
           "lib/netstandard1.3/NLog.Extensions.Logging.dll": {}
         }
       },
-      "nlog.schema/4.4.4": {},
+      "nlog.schema/4.4.9": {},
       "nlog.web.aspnetcore/4.3.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting": "1.1.1",
@@ -2026,6 +2040,10 @@
       "aspnetcorecomponentlibrary/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Mvc": "1.1.2",
+          "Microsoft.AspNetCore.Mvc.Razor": "1.1.2",
+          "Microsoft.AspNetCore.Mvc.Razor.ViewCompilation": "1.1.0",
+          "Microsoft.AspNetCore.Razor": "1.1.1",
+          "Microsoft.AspNetCore.Razor.Runtime": "1.1.1",
           "Microsoft.EntityFrameworkCore": "1.1.1",
           "NETStandard.Library": "1.6.1"
         },
@@ -3897,6 +3915,13 @@
       "path": "microsoft.aspnetcore.mvc.razor.host/1.1.2",
       "hashPath": "microsoft.aspnetcore.mvc.razor.host.1.1.2.nupkg.sha512"
     },
+    "microsoft.aspnetcore.mvc.razor.viewcompilation/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WSf7IzK8Q8XOfF3xbFfJPL6yPDOwhohIlSXlf9h28saseIe3TNN5xE7VrYgcpc+MbQ6hAmzvS3ATsfYsUWN+Sw==",
+      "path": "microsoft.aspnetcore.mvc.razor.viewcompilation/1.1.0",
+      "hashPath": "microsoft.aspnetcore.mvc.razor.viewcompilation.1.1.0.nupkg.sha512"
+    },
     "microsoft.aspnetcore.mvc.taghelpers/1.1.2": {
       "type": "package",
       "serviceable": true,
@@ -4366,12 +4391,12 @@
       "path": "nlog/5.0.0-beta06",
       "hashPath": "nlog.5.0.0-beta06.nupkg.sha512"
     },
-    "nlog.config/4.4.4": {
+    "nlog.config/4.4.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Rk7Xg1yyythxT5HzGmdi+IGHbT8QrMb0kww74tBj84eGWNagxNRJBpbmtYIX/XtsdoXv+Ke0ak3nF2jHPcA2Gg==",
-      "path": "nlog.config/4.4.4",
-      "hashPath": "nlog.config.4.4.4.nupkg.sha512"
+      "sha512": "sha512-+lTonVqECjxTbYRvNgGaR8oCdkZaaADWIGbm9hW7J/PyDEFKQNNfNGw379ceJ8QGLbt+FwkEw+argr4pqR2c/A==",
+      "path": "nlog.config/4.4.9",
+      "hashPath": "nlog.config.4.4.9.nupkg.sha512"
     },
     "nlog.extensions.logging/1.0.0-rtm-beta4": {
       "type": "package",
@@ -4380,12 +4405,12 @@
       "path": "nlog.extensions.logging/1.0.0-rtm-beta4",
       "hashPath": "nlog.extensions.logging.1.0.0-rtm-beta4.nupkg.sha512"
     },
-    "nlog.schema/4.4.4": {
+    "nlog.schema/4.4.9": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wLf9qPvGnNCINmgm22Sm72S/Of4U5TMk3NSIaNGOLRBuiOGb90icSLWU+4xd59Re0PiXbKUeALgO8EEBBkAjKw==",
-      "path": "nlog.schema/4.4.4",
-      "hashPath": "nlog.schema.4.4.4.nupkg.sha512"
+      "sha512": "sha512-Efy9c15jpaskvh4XMTBp+zYdtFa/fDreqxDigf6atfvqW4BasG+mu+ySYKGlV+dEQqrM2nkNE+DvDWhxtJItCg==",
+      "path": "nlog.schema/4.4.9",
+      "hashPath": "nlog.schema.4.4.9.nupkg.sha512"
     },
     "nlog.web.aspnetcore/4.3.1": {
       "type": "package",

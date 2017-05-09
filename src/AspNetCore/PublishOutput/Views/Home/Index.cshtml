@@ -14,7 +14,7 @@
 @if (Model!=null && Model.Error != null)
 {
     <div class="alert alert-danger">@Model.Error.Message</div>
-    <div>@Model.Error</div>
+    <pre>@Model.Error</pre>
     return;
 }
 <div>
@@ -23,6 +23,12 @@
        data-insertionmode="replace">Click me!</a>
 
     @await Component.InvokeAsync(nameof(TestComponent), new { text = "привет мир" })
+</div>
+
+<div>
+    page: @Model.Input.Page 
+    <br />
+    culture: @Model.Input.Culture
 </div>
 
 @if (Model.Sites != null)
