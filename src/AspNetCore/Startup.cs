@@ -102,13 +102,14 @@ namespace AspNetCore
             }
 
             // нам такой вариант не подходит у нас разный список культур, для каждого сайта свой
-            var supportedCultures = new[]
+            /*var supportedCultures = new[]
             {
                 new CultureInfo("en-US"),
+                new CultureInfo("ru-RU"),
             };
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
-                DefaultRequestCulture = new RequestCulture("en-US"),
+                DefaultRequestCulture = new RequestCulture("en-US"), //new RequestCulture("en-US"),
                 // Formatting numbers, dates, etc.
                 SupportedCultures = supportedCultures,
                 // UI strings that we have localized.
@@ -141,9 +142,11 @@ namespace AspNetCore
                 DefaultRoutes.Register(routes, app, RoutesForReplace);
             });
 
-            // временно отключим миграции. слишком много шума в логах (не забываем про IsDevelopment, а то разок уже обновил продакшен и забыл про это)
-            if (!env.IsDevelopment())
+            // временно отключим миграции на тестовых машинах. слишком много шума в логах (не забываем про IsDevelopment, а то разок уже обновил продакшен и забыл про это)
+            if (env.IsProduction())
+            {
                 Storage.UpdateDBs();
+            }
         }
     }
 }
