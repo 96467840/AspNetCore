@@ -141,8 +141,9 @@ namespace AspNetCore
                 DefaultRoutes.Register(routes, app, RoutesForReplace);
             });
 
-            // временно отключим миграции. слишком много шума в логах
-            //Storage.UpdateDBs();
+            // временно отключим миграции. слишком много шума в логах (не забываем про IsDevelopment, а то разок уже обновил продакшен и забыл про это)
+            if (!env.IsDevelopment())
+                Storage.UpdateDBs();
         }
     }
 }
