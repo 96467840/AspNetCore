@@ -61,7 +61,7 @@ namespace AspNetCore
             // Setup options with DI
             services.AddOptions();
             services.Configure<SQLiteConfigure>(Configuration.GetSection("SQLiteConfigure"));
-            // обязательно AddScoped (ибо в каждом запросе мы юзаем 2 БД)
+            // обязательно AddScoped (ибо в каждом запросе мы юзаем 2 БД, причем 1 БД может быть своя для каждого сайта)
             services.AddScoped<IStorage, AspNetCoreSqlite.Storage>();
 
             // чтобы во вьюхах русские символы не кодировались

@@ -14,7 +14,7 @@ namespace AspNetCore.Controllers
     public class HomeController : Controller2Garin
     {
 
-        public HomeController(IStorage storage, ILoggerFactory loggerFactory, IStringLocalizerFactory localizerFactory) : base(storage, loggerFactory)
+        public HomeController(IStorage storage, ILoggerFactory loggerFactory, IStringLocalizerFactory localizerFactory) : base(storage, loggerFactory, localizerFactory)
         {
             Logger.LogTrace("Home constructor");
 
