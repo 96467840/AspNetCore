@@ -3,6 +3,9 @@
 локализация (исходники)
 https://github.com/aspnet/Localization
 
+как я понял статья про то как создать собственный провайдер локализации (пример локализация с БД)
+https://www.codeproject.com/Articles/1081513/Localization-Extensibility-in-ASP-NET-Core
+
 решение проблемы со старой версией nodejs (студия идет со своим набором утилит)
 https://blogs.msdn.microsoft.com/webdev/2015/03/19/customize-external-web-tools-in-visual-studio-2015/
 

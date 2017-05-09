@@ -74,6 +74,12 @@
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.3.1" />
   </ItemGroup>
   
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\SharedResource.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  
   <!--<Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
     <Exec Command="bower install" />
     <Exec Command="webpack -p" />
