@@ -21,6 +21,7 @@ using AspNetCoreComponentLibrary;
 using Microsoft.AspNetCore.Routing;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Http;
 
 namespace AspNetCore
 {
@@ -80,6 +81,8 @@ namespace AspNetCore
 
             // https://docs.microsoft.com/ru-ru/aspnet/core/performance/caching/middleware
             services.AddResponseCaching();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
