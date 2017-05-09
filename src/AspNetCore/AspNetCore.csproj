@@ -26,7 +26,7 @@
   </ItemGroup>-->
 
   <ItemGroup>
-    <None Update="wwwroot\images\**\*;wwwroot\lib\**\*.min.js;wwwroot\lib\**\*.min.css;wwwroot\lib\**\fonts\*.*;wwwroot\js\**\*.min.js;wwwroot\css\**\*.min.css;wwwroot\favicon.ico;wwwroot\_references.js;nlog.*">
+    <None Update="wwwroot\images\**\*;wwwroot\lib\**\*.min.js;wwwroot\lib\**\*.min.css;wwwroot\lib\**\fonts\*.*;wwwroot\js\**\*.min.js;wwwroot\css\**\*.min.css;wwwroot\favicon.ico;wwwroot\_references.js;nlog.config;nlog.Production.config.sample;">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
   </ItemGroup>

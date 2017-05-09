@@ -243,3 +243,4 @@ ModelManifest.xml
 
 **/AspNetCore/wwwroot/js/
 **/AspNetCore/wwwroot/css/
+**/nlog.Production.config
