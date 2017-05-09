@@ -84,4 +84,7 @@ sudo systemctl status kestrel-core.service
 systemctl reload httpd.service
 
 конфиги кестрела /etc/systemd/system/
+после изменения конфига надо вызвать
+systemctl daemon-reload
+
 логи в линуксе пишутся сюда /var/log/messages
