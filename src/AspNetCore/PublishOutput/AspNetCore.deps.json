@@ -55,6 +55,14 @@
         "runtime": {
           "AspNetCore.dll": {}
         },
+        "resources": {
+          "es/AspNetCore.resources.dll": {
+            "locale": "es"
+          },
+          "ru/AspNetCore.resources.dll": {
+            "locale": "ru"
+          }
+        },
         "compile": {
           "AspNetCore.dll": {}
         }
@@ -2049,6 +2057,14 @@
         },
         "runtime": {
           "AspNetCoreComponentLibrary.dll": {}
+        },
+        "resources": {
+          "en/AspNetCoreComponentLibrary.resources.dll": {
+            "locale": "en"
+          },
+          "ru/AspNetCoreComponentLibrary.resources.dll": {
+            "locale": "ru"
+          }
         },
         "compile": {
           "AspNetCoreComponentLibrary.dll": {}

@@ -13,7 +13,13 @@ namespace AspNetCore
     [AdminControllerSettings(MenuName = "menus.name", Priority = 10)]
     public class MenusController : ControllerEditable<long, Menus, IMenuRepository>
     {
-        public MenusController(IStorage storage, ILoggerFactory loggerFactory, IStringLocalizerFactory localizerFactory) : base(storage, loggerFactory, localizerFactory)
+        /// <summary>
+        /// Пример переопределния культуры по умолчанию
+        /// </summary>
+        public override string DefaultCulture { get { return "ru"; } }
+
+        public MenusController(IStorage storage, ILoggerFactory loggerFactory, IStringLocalizerFactory localizerFactory, IStringLocalizer localizer) 
+            : base(storage, loggerFactory, localizerFactory, localizer)
         {
         }
     }

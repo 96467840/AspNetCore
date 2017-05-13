@@ -13,7 +13,8 @@ namespace AspNetCore
     [AdminControllerSettings(MenuName = "sites.name", Priority = 10)]
     public class SitesController : ControllerEditable<long, Sites, ISiteRepository>
     {
-        public SitesController(IStorage storage, ILoggerFactory loggerFactory, IStringLocalizerFactory localizerFactory) : base(storage, loggerFactory, localizerFactory)
+        public SitesController(IStorage storage, ILoggerFactory loggerFactory, IStringLocalizerFactory localizerFactory, IStringLocalizer localizer) 
+            : base(storage, loggerFactory, localizerFactory, localizer)
         {
         }
     }

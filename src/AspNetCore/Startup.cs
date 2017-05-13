@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Routing;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Localization;
 
 namespace AspNetCore
 {
@@ -61,9 +62,14 @@ namespace AspNetCore
 
             // Setup options with DI
             services.AddOptions();
+
+            #region DB config
+
             services.Configure<SQLiteConfigure>(Configuration.GetSection("SQLiteConfigure"));
             // обязательно AddScoped (ибо в каждом запросе мы юзаем 2 БД, причем 1 БД может быть своя для каждого сайта)
             services.AddScoped<IStorage, AspNetCoreSqlite.Storage>();
+
+            #endregion
 
             // чтобы во вьюхах русские символы не кодировались
             services.Configure<WebEncoderOptions>(options =>
@@ -82,7 +88,11 @@ namespace AspNetCore
             // https://docs.microsoft.com/ru-ru/aspnet/core/performance/caching/middleware
             services.AddResponseCaching();
 
+            // необходимо для NLog (без этого в логах не будет текущего запроса)
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            // даем возможность переопределить локализацию библиотеки
+            services.AddSingleton<IStringLocalizer, StringLocalizer<SharedResource>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -109,14 +119,14 @@ namespace AspNetCore
             {
                 new CultureInfo("en-US"),
                 new CultureInfo("ru-RU"),
-            };
-            app.UseRequestLocalization(new RequestLocalizationOptions
+            };/**/
+            /*app.UseRequestLocalization(new RequestLocalizationOptions
             {
                 DefaultRequestCulture = new RequestCulture("en-US"), //new RequestCulture("en-US"),
                 // Formatting numbers, dates, etc.
-                SupportedCultures = supportedCultures,
+                //SupportedCultures = supportedCultures,
                 // UI strings that we have localized.
-                SupportedUICultures = supportedCultures
+                //SupportedUICultures = supportedCultures
             });/**/
 
             app.UseStaticFiles();
