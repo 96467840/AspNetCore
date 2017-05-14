@@ -10,7 +10,7 @@ using Microsoft.Extensions.Localization;
 
 namespace AspNetCore
 {
-    [AdminControllerSettings(MenuName = "menus.name", Priority = 10)]
+    [AdminControllerSettings(MenuName = "menus.name", Priority = 20)]
     public class MenusController : ControllerEditable<long, Menus, IMenuRepository>
     {
         /// <summary>

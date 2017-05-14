@@ -91,3 +91,5 @@ systemctl reload httpd.service
 systemctl daemon-reload
 
 логи в линуксе пишутся сюда /var/log/messages
+
+обновление версий либ на линуксе /home/fly/updateCore
