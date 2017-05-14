@@ -18,8 +18,7 @@ namespace AspNetCore
         /// </summary>
         public override string DefaultCulture { get { return "ru"; } }
 
-        public MenusController(IStorage storage, ILoggerFactory loggerFactory, IStringLocalizerFactory localizerFactory, IStringLocalizer localizer) 
-            : base(storage, loggerFactory, localizerFactory, localizer)
+        public MenusController(IControllerSettings settings) : base(settings)
         {
         }
     }

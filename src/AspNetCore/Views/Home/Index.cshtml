@@ -29,6 +29,8 @@
     page: @Model.Input.Page 
     <br />
     culture: @Model.Input.Culture
+    <br />
+    @Url.RouteUrl("Page", new { page = "mypage", path = "my/long/path", getvar=1})
 </div>
 
 @if (Model.Sites != null)

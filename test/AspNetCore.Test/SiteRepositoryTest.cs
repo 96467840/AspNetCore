@@ -91,5 +91,10 @@ namespace AspNetCore
         {
             throw new NotImplementedException();
         }
+
+        public List<Sites> GetUnblocked(long siteid)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

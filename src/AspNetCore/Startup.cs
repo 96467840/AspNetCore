@@ -93,6 +93,8 @@ namespace AspNetCore
 
             // даем возможность переопределить локализацию библиотеки
             services.AddSingleton<IStringLocalizer, StringLocalizer<SharedResource>>();
+
+            services.AddTransient<IControllerSettings, ControllerSettings>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -13,8 +13,7 @@ namespace AspNetCore
     [AdminControllerSettings(MenuName = "languages.name", Priority = 30)]
     public class LanguagesController : ControllerEditable<long, Languages, ILanguageRepository>
     {
-        public LanguagesController(IStorage storage, ILoggerFactory loggerFactory, IStringLocalizerFactory localizerFactory, IStringLocalizer localizer) 
-            : base(storage, loggerFactory, localizerFactory, localizer)
+        public LanguagesController(IControllerSettings settings) : base(settings)
         {
         }
     }
