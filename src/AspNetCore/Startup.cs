@@ -52,17 +52,6 @@ namespace AspNetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddLocalization(options => options.ResourcesPath = "Resources");
-
-            // Add framework services.
-            services.AddMvc()
-                // локализацию шаблонов мы не юзаем, но мы юзаем инжект на вьюхах (IViewLocalizer)
-                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix) //Adds support for localized view files. In this sample view localization is based on the view file suffix. For example "fr" in the Index.fr.cshtml file.
-                .AddDataAnnotationsLocalization();
-
-            // Setup options with DI
-            services.AddOptions();
-
             #region DB config
 
             services.Configure<SQLiteConfigure>(Configuration.GetSection("SQLiteConfigure"));
@@ -71,30 +60,10 @@ namespace AspNetCore
 
             #endregion
 
-            // чтобы во вьюхах русские символы не кодировались
-            services.Configure<WebEncoderOptions>(options =>
-            {
-                options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All);
-            });
-
-            // генерируем урлы в низком регистре (так как для и линукса делаем, а там привычнее когда все пути в низком регистре)
-            services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
-
-            // конфигурируем подгрузку представлений из библиотеки
-            var assembly = typeof(AspNetCoreComponentLibrary.TestComponent).GetTypeInfo().Assembly;
-            var embededFileProvider = new EmbeddedFileProvider(assembly, "AspNetCoreComponentLibrary");
-            services.Configure<RazorViewEngineOptions>(options => { options.FileProviders.Add(embededFileProvider); });
-
-            // https://docs.microsoft.com/ru-ru/aspnet/core/performance/caching/middleware
-            services.AddResponseCaching();
-
-            // необходимо для NLog (без этого в логах не будет текущего запроса)
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.Set2GarinServices<StringLocalizer<SharedResource>>();
 
             // даем возможность переопределить локализацию библиотеки
-            services.AddSingleton<IStringLocalizer, StringLocalizer<SharedResource>>();
-
-            services.AddTransient<IControllerSettings, ControllerSettings>();
+            //services.AddSingleton<IStringLocalizer, StringLocalizer<SharedResource>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
