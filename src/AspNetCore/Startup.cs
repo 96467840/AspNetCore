@@ -60,7 +60,7 @@ namespace AspNetCore
 
             #endregion
 
-            services.Set2GarinServices<StringLocalizer<SharedResource>>();
+            services.Set2GarinServices<StringLocalizer<SharedResource>>(Configuration);
 
             // даем возможность переопределить локализацию библиотеки
             //services.AddSingleton<IStringLocalizer, StringLocalizer<SharedResource>>();
