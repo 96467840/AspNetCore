@@ -29,6 +29,9 @@
     <None Update="wwwroot\images\**\*;wwwroot\lib\**\*.min.js;wwwroot\lib\**\*.min.css;wwwroot\lib\**\fonts\*.*;wwwroot\js\**\*.min.js;wwwroot\css\**\*.min.css;wwwroot\favicon.ico;wwwroot\_references.js;">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
+    <None Update="appsettings.Production.json.sample">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="nlog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

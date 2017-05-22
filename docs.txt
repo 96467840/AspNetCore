@@ -1,5 +1,8 @@
 Файл со ссылками на различную документацию так или иначе связанную с проектом
 
+реализация отслеживания изменения конфига
+https://andrewlock.net/reloading-strongly-typed-options-when-appsettings-change-in-asp-net-core-rc2/
+
 локализация (исходники)
 https://github.com/aspnet/Localization
 

@@ -10,5 +10,8 @@
   "SQLiteConfigure": {
     "ConnectionString": "Data Source=/var/www/2garin.com/core/db/_db.sqlite",
     "ConnectionStringSite": "Data Source=/var/www/2garin.com/core/db/_db_{0}.sqlite"
+  },
+  "LocalizerConfigure": {
+    "DefaultCulture": "ru"
   }
 }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "9827a559e14c030620f773ac7bc0db40f23a24ee"
+    "signature": "e74ef6a883b04ffae1a05aff7e49f09d6d5775d5"
   },
   "compilationOptions": {
     "defines": [
@@ -48,7 +48,7 @@
           "Microsoft.VisualStudio.Web.BrowserLink": "1.1.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "1.1.1",
           "NLog.Config": "4.4.9",
-          "NLog.Extensions.Logging": "1.0.0-rtm-beta4",
+          "NLog.Extensions.Logging": "1.0.0-rtm-beta5",
           "NLog.Schema": "4.4.9",
           "NLog.Web.AspNetCore": "4.3.1"
         },
@@ -1460,7 +1460,7 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "nlog/5.0.0-beta06": {
+      "nlog/5.0.0-beta07": {
         "dependencies": {
           "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
           "NETStandard.Library": "1.6.1",
@@ -1468,6 +1468,7 @@
           "System.ComponentModel.TypeConverter": "4.3.0",
           "System.Data.Common": "4.3.0",
           "System.Diagnostics.Contracts": "4.3.0",
+          "System.Diagnostics.Process": "4.3.0",
           "System.Diagnostics.StackTrace": "4.3.0",
           "System.Diagnostics.TraceSource": "4.0.0",
           "System.IO.FileSystem.AccessControl": "4.0.0",
@@ -1475,6 +1476,7 @@
           "System.Net.NameResolution": "4.3.0",
           "System.Net.Requests": "4.3.0",
           "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Runtime.Loader": "4.3.0",
           "System.Runtime.Serialization.Primitives": "4.3.0",
           "System.Security.AccessControl": "4.0.0",
           "System.Security.Principal": "4.3.0",
@@ -1494,14 +1496,15 @@
       },
       "nlog.config/4.4.9": {
         "dependencies": {
-          "NLog": "5.0.0-beta06",
+          "NLog": "5.0.0-beta07",
           "NLog.Schema": "4.4.9"
         }
       },
-      "nlog.extensions.logging/1.0.0-rtm-beta4": {
+      "nlog.extensions.logging/1.0.0-rtm-beta5": {
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "1.1.2",
-          "NLog": "5.0.0-beta06",
+          "NETStandard.Library": "1.6.1",
+          "NLog": "5.0.0-beta07",
           "System.AppContext": "4.3.0"
         },
         "runtime": {
@@ -1518,8 +1521,8 @@
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.1.2",
           "Microsoft.AspNetCore.Http.Extensions": "1.1.2",
           "Microsoft.AspNetCore.Routing.Abstractions": "1.1.2",
-          "NLog": "5.0.0-beta06",
-          "NLog.Extensions.Logging": "1.0.0-rtm-beta4"
+          "NLog": "5.0.0-beta07",
+          "NLog.Extensions.Logging": "1.0.0-rtm-beta5"
         },
         "runtime": {
           "lib/netstandard1.3/NLog.Web.AspNetCore.dll": {}
@@ -2044,6 +2047,10 @@
           "Microsoft.AspNetCore.Razor": "1.1.2",
           "Microsoft.AspNetCore.Razor.Runtime": "1.1.2",
           "Microsoft.EntityFrameworkCore": "1.1.2",
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.2",
+          "Microsoft.Extensions.Configuration.Json": "1.1.2",
+          "Microsoft.Extensions.FileProviders.Embedded": "1.1.1",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.2",
           "NETStandard.Library": "1.6.1"
         },
         "runtime": {
@@ -4393,12 +4400,12 @@
       "path": "newtonsoft.json/10.0.2",
       "hashPath": "newtonsoft.json.10.0.2.nupkg.sha512"
     },
-    "nlog/5.0.0-beta06": {
+    "nlog/5.0.0-beta07": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3fj23HUh3c66QmmMcFrByjRusvl58X14MS3RyUICiz9TBtOJJTvZZeb+Glm794EzrA06rmm51BZloNGhdH6D0w==",
-      "path": "nlog/5.0.0-beta06",
-      "hashPath": "nlog.5.0.0-beta06.nupkg.sha512"
+      "sha512": "sha512-TQYyCV1pE/+SiW6Slp9DWkyUfEvFgL6GxLS3VvUbVwRSV4vfIgaS5Mn4wzJ+RmkF6qWDb2t7DNr/TjRTDrKCpg==",
+      "path": "nlog/5.0.0-beta07",
+      "hashPath": "nlog.5.0.0-beta07.nupkg.sha512"
     },
     "nlog.config/4.4.9": {
       "type": "package",
@@ -4407,12 +4414,12 @@
       "path": "nlog.config/4.4.9",
       "hashPath": "nlog.config.4.4.9.nupkg.sha512"
     },
-    "nlog.extensions.logging/1.0.0-rtm-beta4": {
+    "nlog.extensions.logging/1.0.0-rtm-beta5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mRnF6TGoQS2Jqpejw0Z6iL7ZXAGwn4DELFXnDvo0L8HEUyzg25HgRvqYhAtGXLxAB7H6kx2+QlHgVHCo8Svfww==",
-      "path": "nlog.extensions.logging/1.0.0-rtm-beta4",
-      "hashPath": "nlog.extensions.logging.1.0.0-rtm-beta4.nupkg.sha512"
+      "sha512": "sha512-mxNlf98H/Nq2PgQWVnAAL0K13Q1F+eKTW46qwAje2HdQJYSoKaNzPkihzRnW+4vxgrTfL3e1uBw3gVcZaEU6Xw==",
+      "path": "nlog.extensions.logging/1.0.0-rtm-beta5",
+      "hashPath": "nlog.extensions.logging.1.0.0-rtm-beta5.nupkg.sha512"
     },
     "nlog.schema/4.4.9": {
       "type": "package",
