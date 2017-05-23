@@ -1,5 +1,8 @@
 Файл со ссылками на различную документацию так или иначе связанную с проектом
 
+версии core.net (sdk & runtime)
+https://habrahabr.ru/post/329102/
+
 реализация отслеживания изменения конфига
 https://andrewlock.net/reloading-strongly-typed-options-when-appsettings-change-in-asp-net-core-rc2/
 
