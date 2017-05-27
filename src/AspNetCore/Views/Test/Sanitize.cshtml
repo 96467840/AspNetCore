@@ -1,0 +1,17 @@
+@model SanitizeVM
+@{
+    ViewData["Title"] = "Sanitize";
+}
+
+<h2>Sanitize</h2>
+
+<form method="post">
+    <textarea name="Html">@Model.Input.Html</textarea>
+    <input type="submit" value="Send" />
+</form>
+<hr />
+@Html.Raw(Model.SanitizedHtml)
+<hr />
+<pre>
+@Html.Raw(Model.SanitizedHtml)
+</pre>

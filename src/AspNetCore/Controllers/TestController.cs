@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using AspNetCoreComponentLibrary.Abstractions;
 using Microsoft.Extensions.Logging;
 using AspNetCoreComponentLibrary;
+using System.Text.Encodings.Web;
 
 namespace AspNetCore.Controllers
 {
@@ -15,18 +16,37 @@ namespace AspNetCore.Controllers
         public readonly ILoggerFactory LoggerFactory;
         public readonly ILogger Logger;
         public readonly ILogger LoggerMEF;
+        public readonly HtmlEncoder Encoder;
 
         public ISiteRepository Sites { get; set; }
         public IUserRepository Users { get; set; }
 
-        public TestController(IStorage storage, ILoggerFactory loggerFactory)
+        //public TestController(IStorage storage, ILoggerFactory loggerFactory)
+        public TestController(IControllerSettings settings , HtmlEncoder enc)
         {
-            LoggerFactory = loggerFactory;
+            LoggerFactory = settings.LoggerFactory;
             Logger = LoggerFactory.CreateLogger(this.GetType().FullName);
             LoggerMEF = LoggerFactory.CreateLogger(Utils.MEFNameSpace);
-            Storage = storage;
+            Storage = settings.Storage;
+            Encoder = enc;
         }
 
+        [HttpPost]
+        public IActionResult Sanitize(SanitizeIM im)
+        {
+            Logger.LogTrace("Sanitize Post source = {0}", im.Html);
+            var vm = new SanitizeVM(im);
+
+            vm.SanitizedHtml = Encoder.Encode(im.Html);
+            Logger.LogTrace("Sanitize Post SanitizedHtml = {0}", vm.SanitizedHtml);
+            return View(vm);
+        }
+
+        public IActionResult Sanitize()
+        {
+            Logger.LogTrace("Sanitize Get");
+            return View(new SanitizeVM( new SanitizeIM()));
+        }
 
         public IActionResult Index(string culture, string path)
         {
