@@ -22,7 +22,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="@Url.RouteUrlWithCulture("Page", new { page = "index" })">Home</a></li>
                     <li><a href="@Url.RouteUrlWithCulture("Admin", new { controller="menus", action="list", Get="Hello" })">Menus admin</a></li>
-                    <li><a href="@Url.RouteUrlWithCulture("Page", new {  culture="ru", page="main", Get="Hello" })">Contact</a></li>
+                    <li><a href="@Url.RouteUrlWithCulture("Page", new {  culture="ru", page="main" })">Contact</a></li>
+                    <li><a href="@Url.RouteUrlWithCulture("Page", new {  culture="ru", page="main", path="faq/index.0" })">FAQ</a></li>
                 </ul>
             </div>
         </div>
