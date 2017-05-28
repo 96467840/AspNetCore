@@ -11,13 +11,13 @@ namespace AspNetCore
         public string Html { get; set; }
     }
 
-    public class SanitizeVM //:BaseVM
+    public class SanitizeVM : BaseVM
     {
         public SanitizeIM Input { get; set; }
         public string SanitizedHtml { get; set; }
         public string Text { get; set; }
 
-        public SanitizeVM(SanitizeIM input) : base()
+        public SanitizeVM(SanitizeIM input) : base(null)
         {
             Input = input;
         }
