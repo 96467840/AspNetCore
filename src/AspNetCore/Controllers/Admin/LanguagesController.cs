@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace AspNetCore
 {
-    [AdminControllerSettings(MenuName = "languages.name", Priority = 30)]
+    [AdminControllerSettings(LocalizerPrefix = "languages", Priority = 30)]
     public class LanguagesController : ControllerEditable<long, Languages, ILanguageRepository>
     {
         public LanguagesController(IControllerSettings settings) : base(settings)

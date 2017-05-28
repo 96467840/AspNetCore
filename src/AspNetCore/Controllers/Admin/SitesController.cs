@@ -10,7 +10,7 @@ using Microsoft.Extensions.Localization;
 
 namespace AspNetCore
 {
-    [AdminControllerSettings(MenuName = "sites.name", Priority = 10)]
+    [AdminControllerSettings(LocalizerPrefix = "sites", Priority = 10)]
     public class SitesController : ControllerEditable<long, Sites, ISiteRepository>
     {
         public SitesController(IControllerSettings settings) : base(settings)

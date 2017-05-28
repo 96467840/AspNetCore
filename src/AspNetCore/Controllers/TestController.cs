@@ -37,15 +37,17 @@ namespace AspNetCore.Controllers
             Logger.LogTrace("Sanitize Post source = {0}", im.Html);
             var vm = new SanitizeVM(im);
 
-            vm.SanitizedHtml = Encoder.Encode(im.Html);
+            vm.SanitizedHtml = im.Html?.SanitizeHtml();// Encoder.Encode(im.Html);
             Logger.LogTrace("Sanitize Post SanitizedHtml = {0}", vm.SanitizedHtml);
-            return View(vm);
+            vm.Text = im.Html?.StripHtml();
+            Logger.LogTrace("Sanitize Post Text = {0}", vm.Text);
+            return View("Sanitize", vm);
         }
 
         public IActionResult Sanitize()
         {
             Logger.LogTrace("Sanitize Get");
-            return View(new SanitizeVM( new SanitizeIM() { Html = "<b>Hello world!</b><br /> привет мир<br /><script>console.log('alert')</script>" }));
+            return View(new SanitizeVM( new SanitizeIM() { Html = "<b>Hello world!</b><br />\n привет мир<br />\n<script>console.log('alert')</script>" }));
         }
 
         public IActionResult Index(string culture, string path)

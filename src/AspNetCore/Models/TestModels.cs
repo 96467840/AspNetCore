@@ -15,6 +15,7 @@ namespace AspNetCore
     {
         public SanitizeIM Input { get; set; }
         public string SanitizedHtml { get; set; }
+        public string Text { get; set; }
 
         public SanitizeVM(SanitizeIM input) : base()
         {
