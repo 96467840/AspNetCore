@@ -45,7 +45,7 @@ namespace AspNetCore.Controllers
         public IActionResult Sanitize()
         {
             Logger.LogTrace("Sanitize Get");
-            return View(new SanitizeVM( new SanitizeIM()));
+            return View(new SanitizeVM( new SanitizeIM() { Html = "<b>Hello world!</b><br /> привет мир<br /><script>console.log('alert')</script>" }));
         }
 
         public IActionResult Index(string culture, string path)
