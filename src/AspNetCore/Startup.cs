@@ -80,10 +80,12 @@ namespace AspNetCore
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
             }
-            else
+            else/**/
             {
                 app.UseExceptionHandler("/e");
             }
+
+            //app.UseStatusCodePagesWithReExecute("/e/error{0}");
 
             // нам такой вариант не подходит у нас разный список культур, для каждого сайта свой
             /*var supportedCultures = new[]
