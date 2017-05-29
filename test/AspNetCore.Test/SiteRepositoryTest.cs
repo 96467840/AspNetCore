@@ -96,5 +96,20 @@ namespace AspNetCore
         {
             throw new NotImplementedException();
         }
+
+        IQueryable<Sites> IRepository<long, Sites>.GetUnblocked(long siteid)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<Sites> GetForSite(long siteid)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<Sites> GetForUser(long userid)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
