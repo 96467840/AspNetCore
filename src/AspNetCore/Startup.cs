@@ -36,15 +36,6 @@ namespace AspNetCore
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
-
-            if (env.IsProduction())
-            {
-                env.ConfigureNLog("nlog.Production.config");
-            }
-            else
-            {
-                env.ConfigureNLog("nlog.config");
-            }
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -67,8 +58,17 @@ namespace AspNetCore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IStorage Storage, IHttpContextAccessor ca)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IStorage Storage)
         {
+            if (env.IsProduction())
+            {
+                env.ConfigureNLog("nlog.Production.config");
+            }
+            else
+            {
+                env.ConfigureNLog("nlog.config");
+            }
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 

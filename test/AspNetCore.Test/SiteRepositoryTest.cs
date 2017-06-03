@@ -102,7 +102,7 @@ namespace AspNetCore
             throw new NotImplementedException();
         }
 
-        public IQueryable<Sites> GetForSite(long siteid)
+        public IQueryable<Sites> GetForSite(long siteid, Dictionary<string, List<string>> filter = null)
         {
             throw new NotImplementedException();
         }
