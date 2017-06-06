@@ -7,6 +7,9 @@ using AspNetCoreComponentLibrary.Abstractions;
 using Microsoft.Extensions.Logging;
 using AspNetCoreComponentLibrary;
 using System.Text.Encodings.Web;
+using System.Diagnostics;
+using System.Reflection;
+using System.Threading;
 
 namespace AspNetCore.Controllers
 {
@@ -48,6 +51,11 @@ namespace AspNetCore.Controllers
         {
             Logger.LogTrace("Sanitize Get");
             return View(new SanitizeVM( new SanitizeIM() { Html = "<b>Hello world!</b><br />\n привет мир<br />\n<script>console.log('alert')</script>" }));
+        }
+
+        public IActionResult Profile(int v=0, int count=1000)
+        {
+            return Utils.ContentResult(_Profile(count, v));
         }
 
         public IActionResult Index(string culture, string path)
@@ -146,5 +154,91 @@ namespace AspNetCore.Controllers
             return Utils.ContentResult("ErrorTest Ok");
         }
 
+        [NonAction]
+        string _Profile(int iterations, int v)
+        {
+            //Run at highest priority to minimize fluctuations caused by other processes/threads
+            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
+            //Thread.CurrentThread.Priority = ThreadPriorityLevel.Highest;
+
+            var coll = GenColl(10000);
+            var watch = new Stopwatch();
+            var res = string.Empty;
+
+            if (v == 1)
+            {
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                GC.Collect();
+
+                var props = typeof(Languages).GetProperties();
+                var p = props.Where(i => i.Name == "IsBlocked").FirstOrDefault();
+                int cc = -1;
+                if (p != null)
+                {
+                    var qquery = coll.Values.Where(i => (bool)p.GetValue(i, null));
+                    watch.Start();
+                    for (int i = 0; i < iterations; i++)
+                    {
+                        cc = FilterCommon(qquery);
+                    }
+                    watch.Stop();
+                }
+                res += string.Format("1. Time Elapsed {0} ms {1}<br />\n", watch.Elapsed.TotalMilliseconds, cc);
+            }/**/
+
+            if (v == 2)
+            {
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                GC.Collect();
+
+                int c = -1;
+                var query = coll.Values.Where(i => i.IsBlocked);
+                watch.Start();
+                for (int i = 0; i < iterations; i++)
+                {
+                    //c = FilterStandart(coll);
+                    c = FilterCommon(query);
+                }
+                watch.Stop();
+                res += string.Format("0. Time Elapsed {0} ms {1}<br />\n", watch.Elapsed.TotalMilliseconds, c);
+            }/**/
+
+            
+
+            return res;
+        }
+
+        [NonAction]
+        int FilterCommon(IEnumerable<Languages> coll)
+        {
+            return coll.Count();
+        }
+
+        [NonAction]
+        int FilterStandart(Dictionary<long, Languages> coll)
+        {
+            return coll.Values.Where(i => i.IsBlocked).Count();
+        }
+
+        [NonAction]
+        int FilterOur(Dictionary<long, Languages> coll, PropertyInfo p)
+        {
+            return coll.Values.Where(i => (bool)p.GetValue(i, null)).Count();
+            //return coll.Values.Where(i => (bool)(i.GetType().GetProperty("IsBlocked").GetValue(i, null))).Count();
+        }
+
+        [NonAction]
+        Dictionary<long, Languages> GenColl(int items)
+        {
+            var coll = new Dictionary<long, Languages>();
+            var rnd = new Rnd();
+            for (var i = 0; i < items; i++)
+            {
+                coll[i] = new Languages() { Id = i, IsBlocked = rnd.Next(0, 99) >= 50, Lang = rnd.RandomString(5) };
+            }
+            return coll;
+        }
     }
 }
