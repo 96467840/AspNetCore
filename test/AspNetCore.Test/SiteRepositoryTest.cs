@@ -52,7 +52,7 @@ namespace AspNetCore
             throw new NotImplementedException();
         }
 
-        public void SetStorageContext(IStorageContext storageContext, IStorage storage, ILoggerFactory loggerFactory)
+        public void SetStorageContext(IStorageContext storageContext, IStorage storage, ILoggerFactory loggerFactory, ILocalizer2Garin localizer2Garin)
         {
             throw new NotImplementedException();
         }

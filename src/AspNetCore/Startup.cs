@@ -43,6 +43,8 @@ namespace AspNetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Set2GarinServices<StringLocalizer<SharedResource>>(Configuration);
+
             #region DB config
 
             services.Configure<SQLiteConfigure>(Configuration.GetSection("SQLiteConfigure"));
@@ -51,10 +53,6 @@ namespace AspNetCore
 
             #endregion
 
-            services.Set2GarinServices<StringLocalizer<SharedResource>>(Configuration);
-
-            // даем возможность переопределить локализацию библиотеки
-            //services.AddSingleton<IStringLocalizer, StringLocalizer<SharedResource>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
