@@ -53,6 +53,23 @@ namespace AspNetCore.Controllers
             return View(new SanitizeVM( new SanitizeIM() { Html = "<b>Hello world!</b><br />\n привет мир<br />\n<script>console.log('alert')</script>" }));
         }
 
+        public async Task<IActionResult> CheckLock()
+        {
+            //Sites = Storage.GetRepository<ISiteRepository>(EnumDB.UserSites);
+            Storage.ConnectToSiteDB(1);
+            var menus = Storage.GetRepository<IMenuRepository>(EnumDB.Content);
+            var tasks = new List<Task>();
+            for (var i = 0; i < 10; i++)
+            {
+                tasks.Add(Task.Run(() =>
+                {
+                    var tmp = menus.GetUnblocked(1);
+                }));
+            }
+            await Task.WhenAll(tasks);
+            return Utils.ContentResult("ok");
+        }
+
         public IActionResult Profile(int v=0, int count=1000)
         {
             return Utils.ContentResult(_Profile(count, v));
