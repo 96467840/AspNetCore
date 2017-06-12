@@ -57,7 +57,7 @@ namespace AspNetCore
             throw new NotImplementedException();
         }
 
-        public IQueryable<Sites> StartQuery()
+        public IQueryable<Sites> StartQuery(long siteid)
         {
             return coll.Values.AsQueryable();
         }
@@ -102,7 +102,7 @@ namespace AspNetCore
             throw new NotImplementedException();
         }
 
-        public IQueryable<Sites> GetForSite(long siteid, Dictionary<string, List<string>> filter = null)
+        public IQueryable<Sites> GetFiltered(long siteid, Dictionary<string, List<string>> filter = null)
         {
             throw new NotImplementedException();
         }

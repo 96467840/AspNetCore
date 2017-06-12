@@ -127,7 +127,7 @@ namespace AspNetCore
             });
 
             // временно отключим миграции на тестовых машинах. слишком много шума в логах (не забываем про IsDevelopment, а то разок уже обновил продакшен и забыл про это)
-            //if (env.IsProduction())
+            if (env.IsProduction())
             {
                 Storage.UpdateDBs();
             }

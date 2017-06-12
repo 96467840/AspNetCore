@@ -161,11 +161,29 @@ namespace AspNetCore.Controllers
             Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
             //Thread.CurrentThread.Priority = ThreadPriorityLevel.Highest;
 
-            var coll = GenColl(10000);
+            var coll = GenColl(100000);
             var watch = new Stopwatch();
             var res = string.Empty;
 
             if (v == 1)
+            {
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                GC.Collect();
+
+                int c = -1;
+                var query = coll.Values.AsParallel().Where(i => i.IsBlocked);
+                watch.Start();
+                for (int i = 0; i < iterations; i++)
+                {
+                    //c = FilterStandart(coll);
+                    c = FilterCommon(query);
+                }
+                watch.Stop();
+                res += string.Format("1. Time Elapsed {0} ms {1}<br />\n", watch.Elapsed.TotalMilliseconds, c);
+            }/**/
+
+            if (v == 2)
             {
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
@@ -184,28 +202,30 @@ namespace AspNetCore.Controllers
                     }
                     watch.Stop();
                 }
-                res += string.Format("1. Time Elapsed {0} ms {1}<br />\n", watch.Elapsed.TotalMilliseconds, cc);
+                res += string.Format("2. Time Elapsed {0} ms {1}<br />\n", watch.Elapsed.TotalMilliseconds, cc);
             }/**/
 
-            if (v == 2)
+            if (v == 3)
             {
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
                 GC.Collect();
 
-                int c = -1;
-                var query = coll.Values.Where(i => i.IsBlocked);
+                //var props = typeof(Languages).GetProperties();
+                //var p = props.Where(i => i.Name == "IsBlocked").FirstOrDefault();
+                int ccc = -1;
+                //if (p != null)
+
+                var qqquery = coll.Values.AsQueryable().Where(ExpressionHelper.ComparePropertyWithConst<Languages, bool>("IsBlocked", true));
                 watch.Start();
                 for (int i = 0; i < iterations; i++)
                 {
-                    //c = FilterStandart(coll);
-                    c = FilterCommon(query);
+                    ccc = FilterCommon(qqquery);
                 }
                 watch.Stop();
-                res += string.Format("0. Time Elapsed {0} ms {1}<br />\n", watch.Elapsed.TotalMilliseconds, c);
-            }/**/
 
-            
+                res += string.Format("3. Time Elapsed {0} ms {1}<br />\n", watch.Elapsed.TotalMilliseconds, ccc);
+            }/**/
 
             return res;
         }
