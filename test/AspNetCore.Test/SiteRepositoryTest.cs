@@ -87,7 +87,7 @@ namespace AspNetCore
             throw new NotImplementedException();
         }
 
-        public void ClearCache()
+        public void ClearCache(long? siteid)
         {
             throw new NotImplementedException();
         }
