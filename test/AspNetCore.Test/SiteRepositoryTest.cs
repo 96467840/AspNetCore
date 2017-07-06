@@ -5,6 +5,7 @@ using System.Text;
 using AspNetCoreComponentLibrary;
 using Microsoft.Extensions.Logging;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace AspNetCore
 {
@@ -102,7 +103,7 @@ namespace AspNetCore
             throw new NotImplementedException();
         }
 
-        public IQueryable<Sites> GetFiltered(long siteid, Dictionary<string, List<string>> filter = null)
+        public IQueryable<Sites> GetFiltered(long siteid, Form form)
         {
             throw new NotImplementedException();
         }
