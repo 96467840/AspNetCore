@@ -112,5 +112,15 @@ namespace AspNetCore
         {
             throw new NotImplementedException();
         }
+
+        public void TranslateItem(long siteid, Languages lang, List<Languages> siteLanguages, Sites item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TranslateList(long siteid, Languages lang, List<Languages> siteLanguages, List<Sites> items)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

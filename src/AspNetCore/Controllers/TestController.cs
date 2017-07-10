@@ -20,18 +20,20 @@ namespace AspNetCore.Controllers
         public readonly ILogger Logger;
         public readonly ILogger LoggerMEF;
         public readonly HtmlEncoder Encoder;
+        public readonly IRnd Rnd;
 
         public ISiteRepository Sites { get; set; }
         public IUserRepository Users { get; set; }
 
         //public TestController(IStorage storage, ILoggerFactory loggerFactory)
-        public TestController(IControllerSettings settings , HtmlEncoder enc)
+        public TestController(IControllerSettings settings , HtmlEncoder enc, IRnd rnd)
         {
             LoggerFactory = settings.LoggerFactory;
             Logger = LoggerFactory.CreateLogger(this.GetType().FullName);
             LoggerMEF = LoggerFactory.CreateLogger(Utils.MEFNameSpace);
             Storage = settings.Storage;
             Encoder = enc;
+            this.Rnd = rnd;
         }
 
         [HttpPost]
@@ -75,6 +77,44 @@ namespace AspNetCore.Controllers
             return Utils.ContentResult(_Profile(count, v));
         }
 
+        public IActionResult GenMenu(int count = 3)
+        {
+            Sites = Storage.GetRepository<ISiteRepository>(EnumDB.UserSites);
+            var site = Sites[1];
+            if(site==null) return Utils.ContentResult("Site not founded!");
+            Storage.ConnectToSiteDB(site.Id);
+
+            var Menus = Storage.GetRepository<IMenuRepository>(EnumDB.Content);
+            for (var i = 0; i < count; i++)
+            {
+                var name = "Menu " + i + " " + Rnd.RandomString(5);
+                var menu = new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = i, Content = Rnd.RandomString(1005) };
+                Menus.Save(menu);
+                Storage.Save(EnumDB.Content);
+                Menus.AfterSave(menu, true);
+                var parent = menu.Id;
+                for (var j = 0; j < Rnd.Next(0, count); j++)
+                {
+                    name = "Menu " + i + "_" + j + " " + Rnd.RandomString(5);
+                    menu = new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = j, Content = Rnd.RandomString(1005), ParentId = parent };
+                    Menus.Save(menu);
+                    Storage.Save(EnumDB.Content);
+                    Menus.AfterSave(menu, true);
+                    var parent1 = menu.Id;
+                    for (var k = 0; k < Rnd.Next(0, count); k++)
+                    {
+                        name = "Menu " + i + "_" + j + "_" + k + " " + Rnd.RandomString(5);
+                        menu = new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = k, Content = Rnd.RandomString(1005), ParentId = parent1 };
+                        Menus.Save(menu);
+                        Storage.Save(EnumDB.Content);
+                        Menus.AfterSave(menu, true);
+                    }
+                }
+            }
+            
+            return Utils.ContentResult("Ok");
+        }
+
         public IActionResult Index(string culture, string path)
         {
             Sites = Storage.GetRepository<ISiteRepository>(EnumDB.UserSites);
@@ -98,7 +138,7 @@ namespace AspNetCore.Controllers
                     UserSites.Save(us);
                 }
 
-                Storage.Save();
+                Storage.Save(EnumDB.UserSites);
 
                 Users.AfterSave(user, false);
                 Sites.AfterSave(site, false);
@@ -131,7 +171,7 @@ namespace AspNetCore.Controllers
                     UserSites.Remove(us);
                 }
 
-                Storage.Save();
+                Storage.Save(EnumDB.UserSites);
 
                 Users.AfterSave(user, false);
                 Sites.AfterSave(site, false);
@@ -162,7 +202,7 @@ namespace AspNetCore.Controllers
                     UserSites.Save(us);
                 }
 
-                Storage.Save();
+                Storage.Save(EnumDB.UserSites);
 
                 Users.AfterSave(user, false);
                 Sites.AfterSave(site, false);
