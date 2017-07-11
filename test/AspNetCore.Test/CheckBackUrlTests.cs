@@ -34,7 +34,7 @@ namespace AspNetCore
             //controller.ControllerContext = new ControllerContext();
             //controller.ControllerContext.HttpContext = new DefaultHttpContext();
 
-            Assert.True(Utils.CheckBackUrl(Sites, host));
+            Assert.True(Sites.CheckBackUrl(host));
         }
 
         [Theory]
@@ -48,7 +48,7 @@ namespace AspNetCore
         [InlineData("http://2garin.com.2garin.ru")]
         public void TestNotValidHosts(string host)
         {
-            Assert.False(Utils.CheckBackUrl(Sites, host));
+            Assert.False(Sites.CheckBackUrl(host));
         }
     }
 }

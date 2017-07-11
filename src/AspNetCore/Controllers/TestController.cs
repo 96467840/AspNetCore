@@ -88,26 +88,26 @@ namespace AspNetCore.Controllers
             for (var i = 0; i < count; i++)
             {
                 var name = "Menu " + i + " " + Rnd.RandomString(5);
-                var menu = new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = i, Content = Rnd.RandomString(1005) };
-                Menus.Save(menu);
-                Storage.Save(EnumDB.Content);
-                Menus.AfterSave(menu, true);
+                //var menu = new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = i, Content = Rnd.RandomString(1005) };
+                var menu = Menus.Save(new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = i, Content = Rnd.RandomString(1005) });
+                //Storage.Save(EnumDB.Content);
+                //Menus.AfterSave(menu, true);
                 var parent = menu.Id;
                 for (var j = 0; j < Rnd.Next(0, count); j++)
                 {
                     name = "Menu " + i + "_" + j + " " + Rnd.RandomString(5);
-                    menu = new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = j, Content = Rnd.RandomString(1005), ParentId = parent };
-                    Menus.Save(menu);
-                    Storage.Save(EnumDB.Content);
-                    Menus.AfterSave(menu, true);
+                    //menu = new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = j, Content = Rnd.RandomString(1005), ParentId = parent };
+                    menu = Menus.Save(new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = j, Content = Rnd.RandomString(1005), ParentId = parent });
+                    //Storage.Save(EnumDB.Content);
+                    //Menus.AfterSave(menu, true);
                     var parent1 = menu.Id;
                     for (var k = 0; k < Rnd.Next(0, count); k++)
                     {
                         name = "Menu " + i + "_" + j + "_" + k + " " + Rnd.RandomString(5);
-                        menu = new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = k, Content = Rnd.RandomString(1005), ParentId = parent1 };
-                        Menus.Save(menu);
-                        Storage.Save(EnumDB.Content);
-                        Menus.AfterSave(menu, true);
+                        //menu = new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = k, Content = Rnd.RandomString(1005), ParentId = parent1 };
+                        menu = Menus.Save(new Menus() { SiteId = site.Id, Name = name, MenuName = name, Priority = k, Content = Rnd.RandomString(1005), ParentId = parent1 });
+                        //Storage.Save(EnumDB.Content);
+                        //Menus.AfterSave(menu, true);
                     }
                 }
             }
@@ -138,10 +138,10 @@ namespace AspNetCore.Controllers
                     UserSites.Save(us);
                 }
 
-                Storage.Save(EnumDB.UserSites);
+                //Storage.Save(EnumDB.UserSites);
 
-                Users.AfterSave(user, false);
-                Sites.AfterSave(site, false);
+                //Users.AfterSave(user, false);
+                //Sites.AfterSave(site, false);
             }
 
 
@@ -171,10 +171,10 @@ namespace AspNetCore.Controllers
                     UserSites.Remove(us);
                 }
 
-                Storage.Save(EnumDB.UserSites);
+                //Storage.Save(EnumDB.UserSites);
 
-                Users.AfterSave(user, false);
-                Sites.AfterSave(site, false);
+                //Users.AfterSave(user, false);
+                //Sites.AfterSave(site, false);
             }
 
 
@@ -202,10 +202,10 @@ namespace AspNetCore.Controllers
                     UserSites.Save(us);
                 }
 
-                Storage.Save(EnumDB.UserSites);
+                //Storage.Save(EnumDB.UserSites);
 
-                Users.AfterSave(user, false);
-                Sites.AfterSave(site, false);
+                //Users.AfterSave(user, false);
+                //Sites.AfterSave(site, false);
             }
 
             return Utils.ContentResult("ErrorTest Ok");

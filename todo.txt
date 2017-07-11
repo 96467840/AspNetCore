@@ -1,2 +1,6 @@
 	1. сделать профилирование Localizer2Garin есть подозрение что очень тормозит
-	2. убрать из репозитория  содержимое папки wwwroot/lib
+		да так и есть 20% времени на локализацию и это тока начало
+		[Внешний вызов] Microsoft.Extensions.Localization.ResourceManagerWithCultureStringLocalizer::get_Item	533	20.62%	533	20.62%	Несколько модулей
+++	2. убрать из репозитория  содержимое папки wwwroot/lib
+	3. сменить версию webpack на последнюю
+	4.

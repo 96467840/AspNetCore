@@ -48,7 +48,7 @@ namespace AspNetCore
             throw new NotImplementedException();
         }
 
-        public void Save(Sites item)
+        public Sites Save(Sites item)
         {
             throw new NotImplementedException();
         }
